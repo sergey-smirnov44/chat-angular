@@ -1,0 +1,63 @@
+.friends {
+  font-size: 12px;
+  line-height: 14px;
+  color: #919191;
+  &__list {
+    overflow-y: scroll;
+    height: 400px;
+  }
+
+  &__title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: -35px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+
+  &__count {
+    margin-right: -20px;
+  }
+
+  .people {
+    font-size: 14px;
+    line-height: 17px;
+    color: #b5b5b5;
+    margin-left: 22px;
+    margin-top: 12px;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+
+    &__status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+
+      &--offline {
+        background: #666;
+      }
+
+      &--online {
+        background: #70cc16;
+      }
+    }
+
+    &__photo {
+      margin-left: 10px;
+      width: 32px;
+      height: 32px;
+    }
+
+    &__img {
+      width: 32px;
+      height: 32px;
+    }
+
+    &__name {
+      margin-left: 10px;
+    }
+  }
+}
+
