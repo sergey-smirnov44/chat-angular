@@ -16,11 +16,10 @@
     padding-left: 26px;
     display: inline-block;
 
-
     &:before {
       content: '';
       position: absolute;
-      background: url('../img/dest/list-of-participants/arrow-down.png') no-repeat;
+      background: url('../../assets/img/dest/list-of-participants/arrow-down.png') no-repeat;
       width: 10px;
       height: 7px;
       right: -20px;
@@ -31,7 +30,7 @@
     &:after {
       content: '';
       position: absolute;
-      background: url('../img/dest/list-of-participants/Combined shape 347.png') no-repeat;
+      background: url('../../assets/img/dest/list-of-participants/Combined shape 347.png') no-repeat;
       width: 16px;
       height: 16px;
       top: 40px;
@@ -51,7 +50,7 @@
     &:after {
       content: '';
       position: absolute;
-      background: url('../img/dest/list-of-participants/dialog.png') no-repeat;
+      background: url('../../assets/img/dest/list-of-participants/dialog.png') no-repeat;
       width: 18px;
       height: 18px;
       top: 0;

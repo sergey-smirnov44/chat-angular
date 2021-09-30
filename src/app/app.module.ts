@@ -14,13 +14,12 @@ import { MessagesListComponent } from './chat/messages-list/messages-list.compon
 import { MessageComponent } from './chat/messages-list/message/message.component';
 import { FieldSendMessageComponent } from './chat/field-send-message/field-send-message.component';
 import { TextareaComponent } from './chat/field-send-message/textarea/textarea.component';
-import { EmojiComponent } from './chat/field-send-message/textarea/emoji/emoji.component';
 import { UserComponent } from './user/user.component';
 import { DeleteUserComponent } from './user/delete-user/delete-user.component';
 import { BtnsendComponent } from './user/btnsend/btnsend.component';
 import { AddNewFriendComponent } from './user/add-new-friend/add-new-friend.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -36,7 +35,6 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     MessageComponent,
     FieldSendMessageComponent,
     TextareaComponent,
-    EmojiComponent,
     UserComponent,
     DeleteUserComponent,
     BtnsendComponent,

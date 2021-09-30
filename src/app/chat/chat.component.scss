@@ -1,0 +1,81 @@
+.main-area {
+  position: relative;
+}
+
+.top-menu {
+  position: sticky;
+  top: 0;
+  //position: relative;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  padding-left: 24px;
+  background: #fff;
+  z-index: 999;
+
+  h1.top-menu__title {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000;
+    position: relative;
+    margin: 0;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.24);
+    bottom: 0px;
+    left: 0;
+  }
+
+  &__img {
+    margin-left: 6px;
+    width: 17px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  &__count {
+    font-size: 14px;
+    line-height: 17px;
+    color: #a4a4a4;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      background: url('../../assets/img/dest/main-menu/man.png');
+      width: 10px;
+      height: 14px;
+      top: 0;
+      left: -15px;
+    }
+  }
+
+
+
+  &__notifications {
+    margin-left: 23px;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      position: absolute;
+      background: #fd4948;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      top: 0;
+      right: -4px;
+    }
+  }
+
+  &__more {
+    margin-left: 25px;
+    cursor: pointer;
+  }
+}

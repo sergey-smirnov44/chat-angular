@@ -1,1 +1,15 @@
-<p>chat works!</p>
+<section class="main-area">
+  <div class="main-area__scroll" onscroll="onscroll" id="showScroll"></div>
+<div class="top-menu d-flex align-items-center">
+  <h1 class="top-menu__title">#general</h1>
+  <mat-icon  aria-label="Example home icon">star_rate</mat-icon>
+  <div class="top-menu__count offset-7">1,093</div>
+  <app-search></app-search>
+  <div class="top-menu__notifications"><img src="../../assets/img/dest/main-menu/bell.png" alt="notifications"
+                                            class="top-menu__notifications"></div>
+  <img src="../../assets/img/dest/main-menu/more.png" class="top-menu__more" alt="more">
+  <!--                        <input id="scriptBox" type="text" onkeypress=" return max(event)" />-->
+</div>
+<app-messages-list></app-messages-list>
+  <app-field-send-message></app-field-send-message>
+</section>
