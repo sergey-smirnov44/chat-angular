@@ -1,61 +1,23 @@
-.list-of-participants{
-  background: #25272a;
-  mix-blend-mode: normal;
-  opacity: 0.75;
-  position: relative;
-  width: 260px;
-  height: 100%;
-  &__title {
-    position: relative;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    color: #fff;
-    padding-top: 36px;
-    padding-left: 26px;
-    display: inline-block;
-
-    &:before {
-      content: '';
-      position: absolute;
-      background: url('../../assets/img/dest/list-of-participants/arrow-down.png') no-repeat;
-      width: 10px;
-      height: 7px;
-      right: -20px;
-      top: 42px;
-      cursor: pointer;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      background: url('../../assets/img/dest/list-of-participants/Combined shape 347.png') no-repeat;
-      width: 16px;
-      height: 16px;
-      top: 40px;
-      right: -160px;
-      cursor: pointer;
-    }
-  }
-
-  &__themes {
-    line-height: 17px;
-    color: #b5b5b5;
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-bottom: 30px;
-    position: relative;
-
-    &:after {
-      content: '';
-      position: absolute;
-      background: url('../../assets/img/dest/list-of-participants/dialog.png') no-repeat;
-      width: 18px;
-      height: 18px;
-      top: 0;
-      left: -25px;
-      cursor: pointer;
-    }
-  }
+.group-title {
+  display: flex;
+  align-content: center;
+  align-items: center;
+position: relative;
 }
+.white-icon-arrow {
+  color: white;
+  position: absolute;
+  right: -25px;
+  font-size:20px;
+
+  cursor: pointer;
+}
+.white-icon-message {
+  color: white;
+  position: absolute;
+  left: 27px;
+  top: 30px;
+  cursor: pointer;
+  font-size: 15px;
+}
+

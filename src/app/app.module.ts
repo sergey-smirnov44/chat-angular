@@ -19,6 +19,8 @@ import { DeleteUserComponent } from './user/delete-user/delete-user.component';
 import { BtnsendComponent } from './user/btnsend/btnsend.component';
 import { AddNewFriendComponent } from './user/add-new-friend/add-new-friend.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatIconRegistry } from '@angular/material/icon';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 
 
@@ -46,7 +48,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    NgbModule
+    NgbModule,
+    PickerModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

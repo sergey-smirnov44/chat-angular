@@ -2,13 +2,33 @@
   <div class="main-area__scroll" onscroll="onscroll" id="showScroll"></div>
 <div class="top-menu d-flex align-items-center">
   <h1 class="top-menu__title">#general</h1>
-  <mat-icon  aria-label="Example home icon">star_rate</mat-icon>
-  <div class="top-menu__count offset-7">1,093</div>
+  <mat-icon  aria-label="Example home icon">star_outline</mat-icon>
+
+
+    <div class="top-menu__count offset-7">
+      <mat-icon class="icon-people">perm_identity</mat-icon>
+      1,093
+    </div>
+
+
   <app-search></app-search>
-  <div class="top-menu__notifications"><img src="../../assets/img/dest/main-menu/bell.png" alt="notifications"
-                                            class="top-menu__notifications"></div>
-  <img src="../../assets/img/dest/main-menu/more.png" class="top-menu__more" alt="more">
-  <!--                        <input id="scriptBox" type="text" onkeypress=" return max(event)" />-->
+ <mat-icon class="top-menu__notifications">notifications</mat-icon>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="top-menu__more" aria-label="Example icon-button with a menu">
+    <mat-icon class="color-white">more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>delete</mat-icon>
+      <span>delete all message this channel</span>
+    </button>
+
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>mute messages this channel</span>
+    </button>
+  </mat-menu>
+
 </div>
 <app-messages-list></app-messages-list>
   <app-field-send-message></app-field-send-message>

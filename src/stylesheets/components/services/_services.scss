@@ -1,0 +1,92 @@
+.services {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: #000;
+  mix-blend-mode: normal;
+  opacity: 0.7;
+  height: 100%;
+  padding-top: 12px;
+  width: 72px;
+
+  .button-macos {
+    position: sticky;
+    top: 12px;
+
+    &__item {
+      width: 12px;
+      height: 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      border: none;
+      @media screen and (min-width: 1920px) {
+        width: 14px;
+        height: 14px;
+      }
+
+      &--red {
+        background: #ff5757;
+      }
+
+      &--yellow {
+        background: #f6a53b;
+      }
+
+      &--green {
+        background: #2da04c;
+      }
+    }
+  }
+}
+
+.menu-list {
+  justify-content: space-between;
+  position: sticky;
+  top: 30px;
+
+  &__item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 20px;
+    cursor: pointer;
+    &:hover {
+      opacity: .5;
+    }
+    &--icon1 {
+      background: url('~src/assets/img/dest/menu/1.png') no-repeat 50% 50%
+    }
+
+    &--icon2 {
+      background: url('~src/assets/img/dest/menu/2.png') no-repeat 50% 50%, #e25a5a;
+    }
+
+    &--icon3 {
+      background: url('~src/assets/img/dest/menu/3.png');
+    }
+
+    &--icon4 {
+      background: url('~src/assets/img/dest/menu/4.png') no-repeat 49% 49%, #ea4c89;
+    }
+
+    &--icon5 {
+      background: url('~src/assets/img/dest/menu/5.png') no-repeat 50% 50%;
+    }
+
+    &--icon6 {
+      background: url('~src/assets/img/dest/menu/6.png') no-repeat 50% 50%;
+    }
+
+    &--icon7 {
+      background: url('~src/assets/img/dest/menu/7.png') no-repeat 50% 50%, #127abd;
+    }
+
+    &--icon8 {
+      background: url('~src/assets/img/dest/menu/add.png') no-repeat 50% 50%, rgba(255, 255, 255, .1);
+    }
+  }
+}
+
+
+

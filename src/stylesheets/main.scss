@@ -1,0 +1,18 @@
+@import 'fonts', 'global';
+
+@import
+  // импорт стилей для первой колонки
+'components/services/services',
+  // импорт стилей для второй колонки
+'components/chat-sidebar/chat-sidebar',
+'components/chat-sidebar/channels',
+'components/chat-sidebar/friends',
+  // импорт стилей для третей колонки
+'components/chat/chat',
+'components/chat/field-send-message',
+'components/chat/field-send-message-textarea',
+'components/chat/message',
+'components/chat/messages-list',
+'components/chat/search',
+  // импорт стилей для четвертой колонки
+'components/user/user';

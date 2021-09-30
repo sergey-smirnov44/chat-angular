@@ -1,0 +1,29 @@
+.list-of-participants{
+  background: #25272a;
+  mix-blend-mode: normal;
+  opacity: 0.75;
+  position: relative;
+  width: 260px;
+  height: 100%;
+  &__title {
+    position: relative;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #fff;
+    margin-top: 36px;
+    margin-left: 26px;
+    display: inline-block;
+
+  }
+
+  &__themes {
+    line-height: 17px;
+    color: #b5b5b5;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    position: relative;
+  }
+}

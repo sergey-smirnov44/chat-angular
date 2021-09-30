@@ -1,0 +1,203 @@
+.infouser {
+  background: rgba(0, 0, 0, .2);
+  width: 100%;
+  height: 100%;
+
+  &__photo {
+    width: 100%;
+    max-width: 300px;
+
+  }
+
+  .info-column {
+    padding: 0 20px;
+
+
+    &__name {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+      color: #000;
+      @media screen and (min-width: 1400px) {
+        font-size: 24px;
+      }
+
+    }
+
+    &__profession {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 14px;
+      color: #5f6164;
+      @media screen and (min-width: 1400px) {
+        font-size: 16px;
+      }
+    }
+
+    .social {
+      margin-top: 25px;
+
+      &__item {
+        margin-right: 10px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .2s ease;
+
+        &--fb {
+          background: url('~src/assets/img/dest/info-column/icon-fb.png') no-repeat 50% 50%, #e8e8eb;
+
+          &:hover {
+            background: url('~src/assets/img/dest/info-column/icon-fb.png') no-repeat 50% 50%, #fff;
+          }
+        }
+
+        &--tw {
+          background: url('~src/assets/img/dest/info-column/icon-tw.png') no-repeat 50% 50%, #e8e8eb;
+
+          &:hover {
+            background: url('~src/assets/img/dest/info-column/icon-tw.png') no-repeat 50% 50%, #fff;
+          }
+        }
+
+        &--ins {
+          background: url('~src/assets/img/dest/info-column/icon-ins.png') no-repeat 50% 50%, #e8e8eb;
+
+          &:hover {
+            background: url('~src/assets/img/dest/info-column/icon-ins.png') no-repeat 50% 50%, #fff;
+          }
+        }
+
+        &--in {
+          background: url('~src/assets/img/dest/info-column/icon-in.png') no-repeat 50% 50%, #e8e8eb;
+
+          &:hover {
+            background: url('~src/assets/img/dest/info-column/icon-in.png') no-repeat 50% 50%, #fff;
+          }
+        }
+
+
+      }
+    }
+
+    .message {
+      margin-top: 25px;
+
+      &__btn {
+        color: #fff;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+        padding: 5px 42px;
+        background: #3577ef;
+        border: 0;
+        cursor: pointer;
+        margin-right: 3px;
+        @media screen and (min-width: 1400px) {
+          padding: 10px 60px;
+          font-size: 16px;
+        }
+      }
+
+      &__more {
+        cursor: pointer;
+        background: #3577ef;
+        position: relative;
+        width: 26px;
+        height: 26px;
+        border-radius: 5px;
+        border: 0;
+
+        @media screen and (min-width: 1400px) {
+
+          width: 35px;
+          height: 35px;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          background: url('~src/assets/img/dest/info-column/arrow-down.png') no-repeat;
+          top: 15px;
+          right: 9px;
+          width: 12px;
+          height: 10px;
+        }
+      }
+    }
+
+    .username {
+      margin-top: 14px;
+
+      p.username__description {
+        color: #5f6164;
+        font-size: 12px;
+        line-height: 14px;
+      }
+
+      p.username__title {
+        font-size: 14px;
+        line-height: 17px;
+        color: #000;
+        margin-top: 5px;
+      }
+    }
+
+    .email {
+      margin-top: 12px;
+
+      p.email__description {
+        color: #5f6164;
+        font-size: 12px;
+        line-height: 14px;
+      }
+
+      p.email__title {
+        margin-top: 5px;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000;
+      }
+    }
+
+    .skype {
+      margin-top: 12px;
+
+      p.skype__description {
+        color: #5f6164;
+        font-size: 12px;
+        line-height: 14px;
+      }
+
+      p.skype__title {
+        margin-top: 5px;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000;
+      }
+    }
+
+    .timezone {
+      margin-top: 12px;
+
+      p.timezone__description {
+        color: #5f6164;
+        font-size: 12px;
+        line-height: 14px;
+      }
+
+      p.timezone__time {
+        margin-top: 5px;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000;
+      }
+    }
+
+
+  }
+}
