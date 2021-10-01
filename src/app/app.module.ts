@@ -19,10 +19,11 @@ import { DeleteUserComponent } from './4_user/delete-user/delete-user.component'
 import { BtnsendComponent } from './4_user/btnsend/btnsend.component';
 import { AddNewFriendComponent } from './4_user/add-new-friend/add-new-friend.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatIconRegistry } from '@angular/material/icon';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 
 
@@ -54,7 +55,8 @@ import { StoreModule } from '@ngrx/store';
     PickerModule,
     ReactiveFormsModule,
     FormsModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
 
   ],
   providers: [],
