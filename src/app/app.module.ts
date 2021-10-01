@@ -22,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconRegistry } from '@angular/material/icon';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 
 
@@ -52,7 +53,8 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     PickerModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({}, {})
 
   ],
   providers: [],
