@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextareaComponent implements OnInit {
 
+  public fieldInput = '';
+  public isEmojiPickerVisible: boolean;
+  public addEmoji(event) {
+    this.fieldInput = `${this.fieldInput}${event.emoji.native}`;
+    this.isEmojiPickerVisible = false;
+  }
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

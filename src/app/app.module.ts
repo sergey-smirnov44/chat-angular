@@ -21,6 +21,7 @@ import { AddNewFriendComponent } from './user/add-new-friend/add-new-friend.comp
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconRegistry } from '@angular/material/icon';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -50,6 +51,8 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
     FlexLayoutModule,
     NgbModule,
     PickerModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [],

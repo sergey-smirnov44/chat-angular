@@ -1,7 +1,15 @@
 <div class="write-message">
+
   <mat-icon alt="attach" class="write-message__attach">attach_file</mat-icon>
 
   <mat-icon alt="audio-message"
-            class="write-message__audio-message">mic</mat-icon>
-  <app-textarea></app-textarea>
+            class="write-message__audio-message">mic
+  </mat-icon>
+  <input type="text" class="write-message__text-field" id="addMessage" placeholder="Message in #general"
+         [(ngModel)]="fieldInput">
+  <button class="write-message__emoji" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
+    <mat-icon>sentiment_satisfied_alt</mat-icon>
+  </button>
+  <emoji-mart class="emoji-mart write-message__emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)"
+              title="Choose your emoji"></emoji-mart>
 </div>

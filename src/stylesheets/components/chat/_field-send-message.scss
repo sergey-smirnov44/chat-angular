@@ -1,12 +1,26 @@
+
 .write-message {
   width: 100%;
   position: sticky;
+
   bottom: 0;
   z-index: 999;
 
   &__attach {position: absolute; top: 25px; left: 25px; cursor: pointer; color: #999}
 
   &__audio-message {position: absolute; top: 25px; left: 55px; cursor: pointer; color: #999}
+
+  &__emoji { position: absolute; top: 25px; border: 0;
+    right: 25px; background: transparent; color: #999}
+
+  &__emoji-mart {
+    position: absolute;
+    top: -425px;
+    right: 0;
+  }
+
+
+
 
   input.write-message__text-field {
     width: 100%;
@@ -17,4 +31,7 @@
     border-top: 2px solid rgba(0, 0, 0, .24);
   }
 
+}
+.icon-smile {
+  position: absolute;
 }
