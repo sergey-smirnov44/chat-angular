@@ -1,3 +1,4 @@
+/*
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 import { Date } from 'src/app/core/common/3_chat/dateChat.interface'; // пока под вопросом...интерефейс для даты над
                                                                       // -->                              сообщением
@@ -30,3 +31,4 @@ export type MessageActions =
   | SendMessage
   | DeleteMessage
   | ClearChat
+*/
