@@ -17,7 +17,7 @@ export class SendMessage implements Action {
 export class DeleteMessage implements Action {
   readonly type = DELETE_MESSAGE
 
-  constructor(public payload: { id: number }) {}
+  constructor(public payload: Message ) {}
 }
 
 export class ClearChat implements Action {
@@ -26,7 +26,7 @@ export class ClearChat implements Action {
   constructor(public payload: Message[]) {}
 }
 
-export type MessageUnion =
+export type MessageActions =
   | SendMessage
   | DeleteMessage
   | ClearChat
