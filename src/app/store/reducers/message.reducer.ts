@@ -5,18 +5,18 @@ import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { isPackageNameSafeForAnalytics } from '@angular/cli/models/analytics';
 
 
-export interface State extends EntityState<Message> {
-  selectedMessageId: string | null;
+export interface State extends EntityState<Message> {}
+
+export function selectMessageId(a: Message): any {
+  return a.id;
 }
 
-export const adapter: EntityAdapter<Message> = createEntityAdapter<Message>()
+export const adapter = createEntityAdapter<Message>({
+  selectId: selectMessageId
+});
 
-export const initialState: State = adapter.getInitialState({
-  selectedMessageId: null
-})
+export const initialState: State = adapter.getInitialState({});
 
-// @ts-ignore
-// @ts-ignore
 const messageReducer = createReducer(
   initialState,
   on(FromMessage.sendMessage, (state, { message }) => {
@@ -26,7 +26,7 @@ const messageReducer = createReducer(
     return adapter.removeOne(id, state)
   }),
   on(FromMessage.clearChat, state => {
-    return adapter.removeAll({ ...state, selectedMessageId: null })
+    return adapter.removeAll({ ...state })
   })
 );
 
@@ -34,41 +34,8 @@ export function reducer(state: State | undefined, action: Action) {
   return messageReducer(state, action)
 }
 
-export const getSelectedMessageId = (state: State) => state.selectedMessageId
-
 const {
-  selectIds,
   selectAll
-} = adapter.getSelectors()
+} = adapter.getSelectors();
 
-export const selectMessageIds = selectIds
-
-export const selectAllMessages = selectAll
-
-// export interface State {
-//   message: Message,
-//   allMessage: Message[],
-//   deleteMessage: Message[],
-//   clearChat: Message[]
-// }
-//
-// export const initialState: State = {
-//   message:  null,
-//   allMessage: null,
-//   deleteMessage: null,
-//   clearChat: null
-// }
-//
-// export const reducer = createReducer(
-//   initialState,
-//   on(FromMessage.sendMessage, state => ({
-//     ...state,
-//     message: null,
-//     allMessage: null
-//   }))
-// )
-//
-// export const sendMessage = (state: State) => state.message
-//
-//
-//
+export const selectAllMessages = selectAll;

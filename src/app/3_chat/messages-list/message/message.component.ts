@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Message} from 'src/app/core/common/3_chat/messageChat.interface';
 import {Store} from '@ngrx/store';
-import MessageJson from '../../../data.json'
+import MessageJson from 'src/assets/data.json'
 import { Observable } from 'rxjs';
 import * as fromStore from '../../../store/reducers'
+import { MessageService } from 'src/app/3_chat/messages-list/message/message.service';
 
 
 
@@ -23,7 +24,7 @@ export class MessageComponent implements OnInit {
   @Input()
 
   ngOnInit(): void {
-
+    this.store.dispatch({ type: '[Message dispatch] Load new message' });
   }
 
 }

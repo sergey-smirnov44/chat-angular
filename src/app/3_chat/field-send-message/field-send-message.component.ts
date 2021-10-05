@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-field-send-message',
@@ -6,13 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./field-send-message.component.scss']
 })
 export class FieldSendMessageComponent implements OnInit {
+  public id: Guid;
   public fieldInput = '';
   public isEmojiPickerVisible: boolean;
+
   public addEmoji(event) {
-    this.fieldInput = `${this.fieldInput}${event.emoji.native}`;
+    this.fieldInput = `${ this.fieldInput }${ event.emoji.native }`;
     this.isEmojiPickerVisible = false;
   }
-  constructor() { }
+
+  constructor() {
+    this.id = Guid.create() // используй Guid для id сообщений
+  }
 
   ngOnInit(): void {
   }

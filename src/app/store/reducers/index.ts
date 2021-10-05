@@ -11,10 +11,11 @@ export const reducers: ActionReducerMap<State> = {
 
 export const selectMessageState = createFeatureSelector<fromMessage.State>('messages')
 
-export const selectMessageIds = createSelector(
-  selectMessageState,
-  fromMessage.selectMessageIds
-)
+
+// export const selectMessageId = createSelector(
+//   selectMessageState,
+//   fromMessage.selectMessageId
+// )
 
 export const selectAllMessages = createSelector(
   selectMessageState,

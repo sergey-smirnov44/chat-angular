@@ -24,6 +24,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import * as fromMessage from './store/reducers/message.reducer'
+import { EffectsModule } from '@ngrx/effects';
+import { MessageEffects } from 'src/app/store/effects/message.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -55,8 +59,10 @@ import { environment } from '../environments/environment';
     PickerModule,
     ReactiveFormsModule,
     FormsModule,
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    HttpClientModule,
+    StoreModule.forRoot({ messages: fromMessage.reducer }, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([MessageEffects])
 
   ],
   providers: [],
