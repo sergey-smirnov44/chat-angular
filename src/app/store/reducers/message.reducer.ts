@@ -1,9 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 import { FromMessage } from '../actions'
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { isPackageNameSafeForAnalytics } from '@angular/cli/models/analytics';
-
+import { EntityState, createEntityAdapter } from '@ngrx/entity';
 
 export interface State extends EntityState<Message> {}
 

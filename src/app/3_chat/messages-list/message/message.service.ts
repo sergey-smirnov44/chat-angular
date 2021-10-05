@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class MessageService{
 
-  private url = ''
+  // private url = 'https://github.com/sergey-smirnov44/chat-angular/blob/master/src/assets/data.json'
 
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get('')
+    return this.http.get('/assets/data.json')
   }
 }
