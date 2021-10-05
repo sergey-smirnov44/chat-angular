@@ -13,7 +13,9 @@ export const adapter = createEntityAdapter<Message>({
   selectId: selectMessageId
 });
 
-export const initialState: State = adapter.getInitialState({});
+export const initialState: State = adapter.getInitialState({
+
+});
 
 const messageReducer = createReducer(
   initialState,
@@ -33,7 +35,7 @@ export function reducer(state: State | undefined, action: Action) {
 }
 
 const {
-  selectAll
+  selectAll, selectIds
 } = adapter.getSelectors();
 
 export const selectAllMessages = selectAll;

@@ -28,6 +28,9 @@ import * as fromMessage from './store/reducers/message.reducer'
 import { EffectsModule } from '@ngrx/effects';
 import { MessageEffects } from 'src/app/store/effects/message.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { reducer } from './store/reducers/message.reducer';
+import { reducers } from 'src/app/store/reducers';
+
 
 
 
@@ -60,10 +63,15 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ messages: fromMessage.reducer }, {}),
+    StoreModule.forRoot(reducers , {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    // StoreModule.forFeature('messageReducer', fromMessage.reducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([MessageEffects])
-
   ],
   providers: [],
   bootstrap: [AppComponent],
