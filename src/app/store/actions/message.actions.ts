@@ -1,7 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 
-export const sendMessage = createAction('[MESSAGE] send message',
+export const sendMessage = createAction(
+  '[MESSAGE] send message',
   props <{ message: Message }>());
 
 

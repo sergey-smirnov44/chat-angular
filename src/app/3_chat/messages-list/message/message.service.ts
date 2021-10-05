@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Message} from 'src/app/core/common/3_chat/messageChat.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class MessageService{
 
   constructor(private http: HttpClient) {}
 
-  getAll() {
-    return this.http.get('/assets/data.json')
+ public getAll(): Observable<Message> {
+    return this.http.get<Message>('/assets/data.json')
   }
 }

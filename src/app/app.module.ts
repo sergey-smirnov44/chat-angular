@@ -63,7 +63,7 @@ import { reducers } from 'src/app/store/reducers';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers , {
+    StoreModule.forRoot(reducers, {
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true

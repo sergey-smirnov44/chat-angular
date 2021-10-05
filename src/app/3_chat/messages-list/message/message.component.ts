@@ -24,7 +24,8 @@ export class MessageComponent implements OnInit {
   @Input()
 
   ngOnInit(): void {
-    this.store.dispatch({ type: '[Message dispatch] Load new message' });
+    // this.store.dispatch({ type: '[MESSAGE] send message' });
+
   }
 
 }
