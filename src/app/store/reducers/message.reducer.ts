@@ -24,11 +24,11 @@ const messageReducer = createReducer(
   //   adapter.addOne(action.message, state)
   // ),
   on(FromMessage.sendMessage, (state, { message }) => {
-    // adapter.addOne(message, state)
+    return adapter.addOne(message, state)
 
-    return ({
-      ...state,
-    })
+    // return ({
+    //   ...state,
+    // })
   }),
   on(FromMessage.sendMessageSuccess, (state, action) =>
     adapter.addOne(action.message, state)

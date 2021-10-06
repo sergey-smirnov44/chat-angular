@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MessageService } from 'src/app/3_chat/messages-list/message/message.service';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
-import {FromMessage} from 'src/app/store/actions';
+import { FromMessage } from 'src/app/store/actions';
 import { Action } from '@ngrx/store';
 
 
@@ -14,25 +14,11 @@ export class MessageEffects {
       ofType(FromMessage.loadMessage),
       mergeMap(() => this.messageService.getAll()
         .pipe(
-          map(data => FromMessage.loadMessageSuccess({message: data})),
+          map(data => FromMessage.loadMessageSuccess({ message: data })),
           catchError(() => of({ type: '[Messages API] Messages Loaded Error' }))
         ))
     )
   )
-
-  // deleteMessage$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(FromMessage.deleteMessage),
-  //     mergeMap((action) =>
-  //       this.messageService.deleteMessage(action.id).pipe(
-  //         map( () => FromMessage.deleteMessageSuccess()),
-  //         catchError((error) =>
-  //           of(FromMessage.deleteMessageFailure({error}))
-  //         )
-  //       )
-  //     )
-  //   )
-  // );
 
 
   constructor(
