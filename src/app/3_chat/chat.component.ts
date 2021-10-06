@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { clearChat, clearChatSuccess } from 'src/app/store/actions/message.actions';
+import { Store } from '@ngrx/store';
+import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 
 
 @Component({
@@ -8,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private store: Store<Message>) { }
 
   ngOnInit(): void {
   }
 
+  deleteAllMessages() {
+    const deleteAllMessages = this.store.dispatch(clearChat({ ids: [] }))
+    // @ts-ignore
+    if (!deleteAllMessages) {
+      this.store.dispatch(clearChatSuccess())
+    }
+
+  }
 }

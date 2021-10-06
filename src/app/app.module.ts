@@ -13,7 +13,6 @@ import { SearchComponent } from './3_chat/search/search.component';
 import { MessagesListComponent } from './3_chat/messages-list/messages-list.component';
 import { MessageComponent } from './3_chat/messages-list/message/message.component';
 import { FieldSendMessageComponent } from './3_chat/field-send-message/field-send-message.component';
-import { TextareaComponent } from './3_chat/field-send-message/textarea/textarea.component';
 import { UserComponent } from './4_user/user.component';
 import { DeleteUserComponent } from './4_user/delete-user/delete-user.component';
 import { BtnsendComponent } from './4_user/btnsend/btnsend.component';
@@ -24,11 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import * as fromMessage from './store/reducers/message.reducer'
 import { EffectsModule } from '@ngrx/effects';
 import { MessageEffects } from 'src/app/store/effects/message.effects';
 import { HttpClientModule } from '@angular/common/http';
-import { reducer } from './store/reducers/message.reducer';
 import { reducers } from 'src/app/store/reducers';
 
 
@@ -46,7 +43,6 @@ import { reducers } from 'src/app/store/reducers';
     MessagesListComponent,
     MessageComponent,
     FieldSendMessageComponent,
-    TextareaComponent,
     UserComponent,
     DeleteUserComponent,
     BtnsendComponent,

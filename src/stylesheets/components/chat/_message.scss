@@ -30,6 +30,19 @@
     height: 200px;
   }
 
+  &__btn-del {
+    color: #999999;
+    right: 2rem;
+    position: absolute;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    transition: .3s;
+    &:hover {
+      color: #000
+    }
+  }
+
   &__text {
     font-size: 13px;
     line-height: 20px;

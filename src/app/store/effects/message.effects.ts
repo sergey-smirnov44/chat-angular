@@ -11,14 +11,29 @@ export class MessageEffects {
 
   loadMessages$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
-      ofType(FromMessage.sendMessage),
+      ofType(FromMessage.loadMessage),
       mergeMap(() => this.messageService.getAll()
         .pipe(
-          map(data => FromMessage.sendMessage({message: data})),
+          map(data => FromMessage.loadMessageSuccess({message: data})),
           catchError(() => of({ type: '[Messages API] Messages Loaded Error' }))
         ))
     )
   )
+
+  // deleteMessage$ = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(FromMessage.deleteMessage),
+  //     mergeMap((action) =>
+  //       this.messageService.deleteMessage(action.id).pipe(
+  //         map( () => FromMessage.deleteMessageSuccess()),
+  //         catchError((error) =>
+  //           of(FromMessage.deleteMessageFailure({error}))
+  //         )
+  //       )
+  //     )
+  //   )
+  // );
+
 
   constructor(
     private actions$: Actions,

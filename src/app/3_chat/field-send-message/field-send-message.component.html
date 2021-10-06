@@ -1,12 +1,12 @@
-<div class="write-message">
+<div class="write-message" id="form"  >
 
   <mat-icon alt="attach" class="write-message__attach">attach_file</mat-icon>
 
   <mat-icon alt="audio-message"
             class="write-message__audio-message">mic
   </mat-icon>
-  <input type="text" class="write-message__text-field" id="addMessage" placeholder="Message in #general"
-         [(ngModel)]="fieldInput">
+  <input type="text" class="write-message__text-field" placeholder="Message in #general"
+         [(ngModel)]="fieldInput" (keydown.enter)="sendText(message)">
   <button class="write-message__emoji" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
     <mat-icon>sentiment_satisfied_alt</mat-icon>
   </button>

@@ -1,8 +1,9 @@
 export interface Message {
-  id: number | string;
-  avatar?: string;
+  id: any;
+  photo?: string;
   name: string;
   time: string;
   text: any;
+  date?: any;
 }
 
