@@ -13,23 +13,21 @@ import { Observable } from 'rxjs';
   styleUrls: ['./field-send-message.component.scss']
 })
 export class FieldSendMessageComponent implements OnInit {
-  public id: Guid;
   constructor(private store: Store<fromStore.State>) {
-    this.id = Guid.create() // используй Guid для id сообщений
   }
 
   public fieldInput = '';
   public isEmojiPickerVisible: boolean;
 
 
- public message: Message = {
-    id: 123,
-    photo: 'https://art.pixilart.com/8a47f5d9039d919.gif',
-    name: 'Sergey',
-    text: this.fieldInput,
-    time: '5:31 AM',
-    date: 'Today'
-  }
+ // public message: Message = {
+ //    id: 123,
+ //    photo: 'https://art.pixilart.com/8a47f5d9039d919.gif',
+ //    name: 'Sergey',
+ //    text: this.fieldInput,
+ //    time: '5:31 AM',
+ //    date: 'Today'
+ //  }
 
 
 
@@ -38,21 +36,23 @@ export class FieldSendMessageComponent implements OnInit {
     this.fieldInput = `${ this.fieldInput }${ event.emoji.native }`;
   }
 
-  sendText(message: Message) {
-    const newMessage = {
-      // id: this.id,
+  sendText() {
+    if (this.fieldInput) {
+    const newMessage: Message = {
+      id: Guid.create().toString(),
       photo: 'https://art.pixilart.com/8a47f5d9039d919.gif',
       name: 'Sergey',
       text: this.fieldInput,
-      time: Date.now,
-      date: 'Today'
+      // time: Date.now,
+      date: new Date().toISOString()
     }
     console.log(newMessage)
 
 
-    this.store.dispatch(sendMessage({ message }))
+    this.store.dispatch(sendMessage({ message: newMessage }))
     this.isEmojiPickerVisible = false
     this.fieldInput = ''
+    }
       // this.store.dispatch(FromMessage.loadMessage());
       // }
     // console.log(this.message: newMessage)

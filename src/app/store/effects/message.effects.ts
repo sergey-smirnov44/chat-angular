@@ -12,7 +12,7 @@ export class MessageEffects {
   loadMessages$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(FromMessage.loadMessage),
-      mergeMap(() => this.messageService.getAll()
+      mergeMap(() => this.messageService.getMessages()
         .pipe(
           map(data => FromMessage.loadMessageSuccess({ message: data })),
           catchError(() => of({ type: '[Messages API] Messages Loaded Error' }))
@@ -21,9 +21,13 @@ export class MessageEffects {
   )
 
 
+
+
   constructor(
     private actions$: Actions,
     private messageService: MessageService
-  ) {}
+  ) {
+
+  }
 
 }

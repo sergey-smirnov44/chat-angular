@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 
 @Component({
   selector: 'app-search',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  searchValue$: Observable<string>
+  @Input() searchValue
 
-  constructor() { }
+  constructor(
+    private store: Store<Message>
+  ) { }
 
   ngOnInit(): void {
   }
 
+
+
+  searchFieldChanged(value: string) {
+  // this.store.dispatch()
+  }
 }

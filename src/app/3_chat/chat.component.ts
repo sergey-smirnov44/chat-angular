@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { clearChat, clearChatSuccess } from 'src/app/store/actions/message.actions';
 import { Store } from '@ngrx/store';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
+
 
 
 @Component({

@@ -27,6 +27,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { MessageEffects } from 'src/app/store/effects/message.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers } from 'src/app/store/reducers';
+import { CommonModule } from '@angular/common';
+
 
 
 
@@ -50,6 +52,7 @@ import { reducers } from 'src/app/store/reducers';
 
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -63,11 +66,12 @@ import { reducers } from 'src/app/store/reducers';
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true
-      }
+      },
     }),
     // StoreModule.forFeature('messageReducer', fromMessage.reducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([MessageEffects])
+    EffectsModule.forRoot([MessageEffects]),
+
   ],
   providers: [],
   bootstrap: [AppComponent],

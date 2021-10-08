@@ -1,22 +1,25 @@
-<div *ngFor="let message of messages$ | async ">
+<div *ngFor="let message of messages$ | async">
 <div  class="line">
-  <div class="line-date">{{message.date}}</div>
+  <div class="line-date">{{message.date | date : 'EEEE, MMMM d, y, GGGG'}}</div>
 </div>
-<div  class="message">
+  <div class="message-main">
+<div  class="message" id="messageBody">
   <img class="message__photo" src="{{message.photo}}" alt="{{message.name}}">
   <div class="text d-flex flex-column">
     <div class="d-flex mb-1">
       <p class="message__name">{{message.name}}</p>
-      <p class="message__time">{{message.time}}</p>
+      <p class="message__time">{{message.date | date : 'HH:mm:ss'}}</p>
     </div>
 
     <p class="message__text "><a
       href="https://goingawesomeplaces.com/6-day-iceland-road-trip-itinerary/"
       target="_blank"></a>{{message.text}}</p>
   </div>
-  <button class="message__btn-del" (click)="deleteMessage(message)"><mat-icon>clear</mat-icon></button>
+
+  <button class="message__btn-del" (click)="deleteMessage(message.id)"><mat-icon>clear</mat-icon></button>
 
 </div>
-<!--  <button class="message__btn-del" (click)="deleteAllMessages(ids)"><mat-icon>delete</mat-icon></button>-->
+  </div>
+
 </div>
 

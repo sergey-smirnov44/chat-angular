@@ -9,6 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "server": "json-server --watch server/data.json",
     "actualizeEnv": "./actualize-env.sh"
   },
   "private": true,
@@ -36,7 +37,9 @@
     "autoprefixer": "^10.0.2",
     "bootstrap": "^4.5.0",
     "core-js": "^3.16.4",
+    "faker": "^5.5.3",
     "guid-typescript": "^1.0.9",
+    "json-server": "^0.17.0",
     "moment": "^2.29.1",
     "postcss-loader": "^5.2.0",
     "rxjs": "~7.3.0",

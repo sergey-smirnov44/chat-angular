@@ -1,3 +1,9 @@
+.message-main {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
 .message {
   font-size: 12px;
   line-height: 14px;
@@ -33,6 +39,7 @@
   &__btn-del {
     color: #999999;
     right: 2rem;
+    align-items: end;
     position: absolute;
     border: 0;
     background: transparent;

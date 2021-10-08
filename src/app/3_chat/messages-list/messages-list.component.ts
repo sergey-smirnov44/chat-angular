@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-messages-list',
   templateUrl: './messages-list.component.html',
   styleUrls: ['./messages-list.component.scss']
 })
-export class MessagesListComponent implements OnInit {
+export class MessagesListComponent implements OnInit, AfterViewChecked {
 
-  constructor() { }
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  ngOnInit(): void {
+  ngOnInit() {
+
   }
 
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom(): void {
+    try {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    } catch (err) {
+    }
+  }
 }
+
+
+
+
