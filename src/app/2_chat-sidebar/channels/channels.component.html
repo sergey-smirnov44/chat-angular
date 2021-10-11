@@ -4,7 +4,14 @@
     <div class="channels__count"><span id="listChanels"></span></div>
   </div>
   <!--***************   список каналов  **********************-->
-  <ul class="d-flex flex-column ">
-    <li class="channels__item"></li>
+  <ul class="d-flex flex-column">
+    <li
+      class="channels__item"
+      *ngFor="let channel of channels$ | async"
+      id="{{channel.id}}"
+      (click)="showChat(channel.id)"
+    >
+      {{'#' + channel.name}}
+    </li>
   </ul>
 </div>

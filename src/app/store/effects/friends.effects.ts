@@ -2,21 +2,21 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 // import { Service } from 'src/app/3_chat/messages-list/message/message.service';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
-import { FromChatSideBar } from 'src/app/store/actions';
+import { FromFriends } from '../actions'
 import { Action } from '@ngrx/store';
 import { ChatSidebarService } from 'src/app/2_chat-sidebar/chat-sidebar.service';
 
 
 @Injectable()
-export class ChatSidebarEffectsEffects {
+export class FriendsEffects {
 
-  loadChannels$: Observable<Action> = createEffect(() =>
+  loadFriends$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
-      ofType(FromChatSideBar.loadChannels),
-      mergeMap(() => this.chatSidebarService.getChannels()
+      ofType(FromFriends.loadFriendsList),
+      mergeMap(() => this.chatSidebarService.getFriendsList()
         .pipe(
-          map(data => FromChatSideBar.loadChannelsSuccess({ channels: data })),
-          catchError(() => of(FromChatSideBar.loadChannelsFailure))
+          map(data => FromFriends.loadFriendsListSuccess({ friends: data })),
+          catchError(() => of(FromFriends.loadFriendsListFailure))
         ))
     )
   )

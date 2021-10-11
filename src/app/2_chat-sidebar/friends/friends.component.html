@@ -3,48 +3,17 @@
     <h2 class="friends__title">friends</h2>
     <p class="friends__count"><span id="countFriends"></span></p>
   </div>
-  <div class="friends__list" id="friends" >
-             <div class="people max d-flex align-items-center" id="1">
-                 <div class="people__status people__status--online"></div>
-                 <div class="people__photo">
-                     <img src="../../assets/img/dest/list-of-participants/face1.png" alt="">
-                 </div>
-                 <div class="people__name">Orlando Diggs</div>
-             </div>
-             <div class="people d-flex align-items-center" id="2">
-                 <div class="people__status people__status--online"></div>
-                 <div class="people__photo">
-                     <img src="../../assets/img/dest/list-of-participants/face2.png" alt="">
-                 </div>
-                 <div class="people__name">Carmen Velasco</div>
-             </div>
-             <div class="people d-flex align-items-center" id="3">
-                 <div class="people__status people__status--offline"></div>
-                 <div class="people__photo">
-                     <img src="../../assets/img/dest/list-of-participants/face3.png" alt="">
-                 </div>
-                 <div class="people__name">Marie Jensen</div>
-             </div>
-             <div class="people d-flex align-items-center" id="4">
-                 <div class="people__status people__status--offline"></div>
-                 <div class="people__photo">
-                     <img src="../../assets/img/dest/list-of-participants/face4.png" alt="">
-                 </div>
-                 <div class="people__name">Alex Lee</div>
-             </div>
-             <div class="people d-flex align-items-center" id="5">
-                 <div class="people__status people__status--offline"></div>
-                 <div class="people__photo">
-                     <img src="../../assets/img/dest/list-of-participants/face5.png" alt="">
-                 </div>
-                 <div class="people__name">Leo Gill</div>
-             </div>
-             <div class="people d-flex align-items-center" id="6">
-                 <div class="people__status people__status--offline"></div>
-                 <div class="people__photo">
-                     <img src="../../assets/img/dest/list-of-participants/face6.png" alt="">
-                 </div>
-                 <div class="people__name">Britney Cooper</div>
-             </div>
+  <div class="friends__list" id="friends">
+    <div *ngFor="let friend of friends$ | async">
+      <div
+        class="people  d-flex align-items-center"
+        *ngIf="friend.friend"
+        id="{{friend.id}}"
+      >
+        <div class="people__status people__status--online"></div>
+        <img class="people__photo" src="{{friend.photo}}" alt="{{friend.name}}">
+        <div class="people__name">{{friend.name}}</div>
+      </div>
+    </div>
   </div>
 </div>

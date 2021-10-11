@@ -20,15 +20,8 @@ export const initialState: State = adapter.getInitialState({
 
 const messageReducer = createReducer(
   initialState,
-  // on(FromMessage.sendMessage, (state, action) =>
-  //   adapter.addOne(action.message, state)
-  // ),
   on(FromMessage.sendMessage, (state, { message }) => {
     return adapter.addOne(message, state)
-
-    // return ({
-    //   ...state,
-    // })
   }),
   on(FromMessage.sendMessageSuccess, (state, action) =>
     adapter.addOne(action.message, state)

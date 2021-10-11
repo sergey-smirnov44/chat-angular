@@ -1,12 +1,10 @@
-import { Component, OnInit, Input, HostListener, ViewChild } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 import { Store } from '@ngrx/store';
-import MessageJson from 'server/data.json'
 import { Observable } from 'rxjs';
 import * as fromStore from '../../../store/reducers'
-import { MessageService } from 'src/app/3_chat/messages-list/message/message.service';
 import { FromMessage } from 'src/app/store/actions';
-
+import { ChatSidebarService } from 'src/app/2_chat-sidebar/chat-sidebar.service';
 
 
 @Component({
@@ -16,13 +14,18 @@ import { FromMessage } from 'src/app/store/actions';
 })
 export class MessageComponent implements OnInit {
 
-  constructor(private store: Store<fromStore.State>) {}
 
-// messages = MessageJson as Message[]
+  constructor(
+    private store: Store<fromStore.State>,
+    private chatService: ChatSidebarService
+  ) {
+
+  }
 
   messages$: Observable<Message[]> = this.store.select(fromStore.selectAllMessages);
   selectId: any;
   ids: any
+
 
   @Input()
 
@@ -31,8 +34,11 @@ export class MessageComponent implements OnInit {
   }
 
   deleteMessage(messageId: string) {
-   this.store.dispatch(FromMessage.deleteMessage({ messageId }))
+    this.store.dispatch(FromMessage.deleteMessage({ messageId }))
   }
 
+  showChat(id) {
+    this.chatService.getShowChat(id)
+  }
 
 }

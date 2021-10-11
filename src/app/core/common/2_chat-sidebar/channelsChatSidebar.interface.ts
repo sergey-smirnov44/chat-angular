@@ -1,6 +1,6 @@
 export interface Channels {
   id: number;
-  title: string;
+  name: string;
   selected: boolean;
 }
 

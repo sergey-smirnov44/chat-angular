@@ -1,7 +1,10 @@
 <section class="main-area">
   <div class="main-area__scroll" onscroll="onscroll" id="showScroll"></div>
 <div class="top-menu d-flex align-items-center">
-  <h1 class="top-menu__title">#general</h1>
+  <div *ngFor="let channel of nameChannels$ | async">
+    <h1 class="top-menu__title" >#{{channel.name}}</h1>
+  </div>
+
   <mat-icon  aria-label="Example home icon">star_outline</mat-icon>
 
 

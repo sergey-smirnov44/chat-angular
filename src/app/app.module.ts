@@ -28,7 +28,10 @@ import { MessageEffects } from 'src/app/store/effects/message.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers } from 'src/app/store/reducers';
 import { CommonModule } from '@angular/common';
-
+import { ChannelsEffects } from 'src/app/store/effects/channels.effects';
+import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
+import { entityConfig } from 'src/entity-metadata';
+import { FriendsEffects } from 'src/app/store/effects/friends.effects';
 
 
 
@@ -70,8 +73,10 @@ import { CommonModule } from '@angular/common';
     }),
     // StoreModule.forFeature('messageReducer', fromMessage.reducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([MessageEffects]),
-
+    EffectsModule.forRoot([MessageEffects, ChannelsEffects, FriendsEffects]),
+    // StoreModule.forRoot({}),
+    // EffectsModule.forRoot([]),
+    // EntityDataModule.forRoot(entityConfig)
   ],
   providers: [],
   bootstrap: [AppComponent],
