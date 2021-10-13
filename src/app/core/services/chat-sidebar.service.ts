@@ -33,9 +33,7 @@ export class ChatSidebarService {
     return this.http.get<Friends[]>(this.baseUrl + 'users/' + id)
   }
 
-  public getChannelsByID(id): Observable<Channels[]> {
-    return this.http.get<Channels[]>(this.baseUrl + 'channels/' + id)
-  }
+
 
   //
   // public getShowChat(id){

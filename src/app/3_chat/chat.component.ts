@@ -1,21 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { clearChat, clearChatSuccess } from 'src/app/store/actions/message.actions';
 import { Store } from '@ngrx/store';
-import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 import * as fromMessage from 'src/app/store/reducers';
-import * as fromChannels from 'src/app/store/reducers';
-import * as fromEntityChannel from 'src/app/store/reducers'
-import { Channel } from 'src/app/core/common/3_chat/channelChat.interface';
-import { Observable, Subscription, switchMap } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
-import { channel } from 'diagnostics_channel';
-import { selectAllMessages } from 'src/app/store/reducers/message.reducer';
-import { Channels } from 'src/app/core/common/2_chat-sidebar/channelsChatSidebar.interface';
 import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
-import { FromEntityChannel } from 'src/app/store/actions';
-import { log } from 'util';
 import * as fromStore from 'src/app/store/reducers';
+import { ChannelService } from 'src/app/core/services/channel.service';
 
 
 @Component({
@@ -25,11 +17,12 @@ import * as fromStore from 'src/app/store/reducers';
 })
 export class ChatComponent implements OnInit {
   get id(): any { return this.ac.snapshot.params.id }
+
   nameChannel$: Observable<EntityChannel[]> = this.store.select(fromStore.selectEntityChannel)
 
   constructor(
     private store: Store<fromMessage.State>,
-    private chatService: ChatSidebarService,
+    private chatService: ChannelService,
     private ac: ActivatedRoute
   ) {
     console.log(this.nameChannel$, 'nameChannel')
@@ -40,7 +33,7 @@ export class ChatComponent implements OnInit {
 
 
 
-  // ch = this.subscription.ac.params.subscribe(params => this.id = params['id']);
+  // ch = this.subscription.this.ac.params.subscribe(params => this.id = params['id']);
 
 
   ngOnInit(): void {

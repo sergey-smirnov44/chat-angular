@@ -4,7 +4,7 @@ import { EntityChannel } from '../../core/common/2_chat-sidebar/entityChannel.in
 
 export const getEntityChannel = createAction(
   '[ENTITY CHANNEL] Entity Channel Get',
-  props<{ id: string }>()
+  props<{ id: number }>()
 )
 
 export const getEntityChannelSuccess = createAction(

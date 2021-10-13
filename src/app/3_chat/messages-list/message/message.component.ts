@@ -21,16 +21,16 @@ export class MessageComponent implements OnInit {
   ) {
 
   }
-// messages$: null
-  messages$: Observable<Message[]> = this.store.select(fromStore.selectAllMessages);
+messages$: null
+//   messages$: Observable<Message[]> = this.store.select(fromStore.selectAllMessages);
 
   ids: any
 
   @Input()
 
   ngOnInit(): void {
-    this.store.dispatch(FromMessage.loadMessage());
-    console.log(this.messages$)
+    // this.store.dispatch(FromMessage.loadMessage());
+    // console.log(this.messages$)
   }
 
   deleteMessage(messageId: string) {
