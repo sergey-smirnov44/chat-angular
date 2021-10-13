@@ -51,10 +51,4 @@ export const loadMessage = createAction(
 export const loadMessageSuccess = createAction(
   '[MESSAGE] load message success',
   props<{ message: Message[] }>());
-/****************************************************************************/
-/***************************SEARCH MESSAGE***********************************/
-/****************************************************************************/
-// export const searchMessage = createAction(
-//   '[MESSAGE SEARCH] Search Message',
-//   props<{query: value }>()
-// )
+

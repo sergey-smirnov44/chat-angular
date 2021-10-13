@@ -1,11 +1,11 @@
 <section class="main-area">
   <div class="main-area__scroll" onscroll="onscroll" id="showScroll"></div>
-<div class="top-menu d-flex align-items-center">
-  <div *ngFor="let channel of nameChannels$ | async">
-    <h1 class="top-menu__title" >#{{channel.name}}</h1>
-  </div>
+  <div class="top-menu d-flex align-items-center">
 
-  <mat-icon  aria-label="Example home icon">star_outline</mat-icon>
+    <h1 class="top-menu__title">#{{ id }} {{name}}</h1>
+
+
+    <mat-icon aria-label="Example home icon">star_outline</mat-icon>
 
 
     <div class="top-menu__count offset-7">
@@ -14,25 +14,26 @@
     </div>
 
 
-  <app-search></app-search>
- <mat-icon class="top-menu__notifications">notifications</mat-icon>
+    <app-search></app-search>
+    <mat-icon class="top-menu__notifications">notifications</mat-icon>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu" class="top-menu__more" aria-label="Example icon-button with a menu">
-    <mat-icon class="color-white">more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="deleteAllMessages()">
-      <mat-icon>delete</mat-icon>
-      <span>delete all message this channel</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="top-menu__more"
+            aria-label="Example icon-button with a menu">
+      <mat-icon class="color-white">more_vert</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="deleteAllMessages()">
+        <mat-icon>delete</mat-icon>
+        <span>delete all message this channel</span>
+      </button>
 
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>mute messages this channel</span>
-    </button>
-  </mat-menu>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>mute messages this channel</span>
+      </button>
+    </mat-menu>
 
-</div>
-<app-messages-list></app-messages-list>
+  </div>
+  <app-messages-list></app-messages-list>
   <app-field-send-message></app-field-send-message>
 </section>

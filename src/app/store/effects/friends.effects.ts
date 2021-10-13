@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
 import { FromFriends } from '../actions'
 import { Action } from '@ngrx/store';
-import { ChatSidebarService } from 'src/app/2_chat-sidebar/chat-sidebar.service';
+import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
 
 
 @Injectable()

@@ -4,6 +4,7 @@ import * as FromStore from '../../store/reducers'
 import { Observable } from 'rxjs';
 import { Friends } from 'src/app/core/common/2_chat-sidebar/friendsChatSideBar.interface';
 import * as fromFriends from '../../store/actions'
+import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
 
 
 @Component({
@@ -14,12 +15,17 @@ import * as fromFriends from '../../store/actions'
 export class FriendsComponent implements OnInit {
   friend: boolean;
 
-  constructor(private store: Store<FromStore.State>) { }
+  constructor(
+    private store: Store<FromStore.State>,
+  private readonly chatService: ChatSidebarService
+  ) { }
 
   friends$: Observable<Friends[]> = this.store.select(FromStore.selectAllFriends)
 
   ngOnInit(): void {
     this.store.dispatch(fromFriends.FromFriends.loadFriendsList())
   }
-
+  showUser(id) {
+    this.chatService.getFriendsById(id).subscribe(res => console.log(res))
+  }
 }

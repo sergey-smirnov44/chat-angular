@@ -2,22 +2,26 @@ import { ActionReducerMap, createFeatureSelector, createSelector} from '@ngrx/st
 import * as fromMessage from './message.reducer';
 import * as fromChannels from './channels.reducer';
 import * as fromFriends from './friends.reducer'
+import * as fromEntityChannel from './entityChannel.reducer'
 
 export interface State {
   messages: fromMessage.State,
   channels: fromChannels.State,
-  friends: fromFriends.State
+  friends: fromFriends.State,
+  entityChannel: fromEntityChannel.State
 }
 
 export const reducers: ActionReducerMap<State> = {
   messages: fromMessage.reducer,
   channels: fromChannels.reducer,
-  friends: fromFriends.reducer
+  friends: fromFriends.reducer,
+  entityChannel: fromEntityChannel.reducer
 }
 
 export const selectMessageState = createFeatureSelector<fromMessage.State>('messages')
 export const selectChannelsState = createFeatureSelector<fromChannels.State>('channels')
 export const selectFriendsState = createFeatureSelector<fromFriends.State>('friends')
+export const selectEntityChannelState = createFeatureSelector<fromEntityChannel.State>('channel')
 
 
 export const selectAllMessages = createSelector(
@@ -34,5 +38,12 @@ export const selectAllFriends = createSelector(
   selectFriendsState,
   fromFriends.selectAllFriends
 )
+
+export const selectEntityChannel = createSelector(
+  selectEntityChannelState,
+  fromEntityChannel.selectEntityChannel
+)
+
+
 
 

@@ -6,6 +6,7 @@
   <div class="friends__list" id="friends">
     <div *ngFor="let friend of friends$ | async">
       <div
+        (click)="showUser(friend.id)"
         class="people  d-flex align-items-center"
         *ngIf="friend.friend"
         id="{{friend.id}}"

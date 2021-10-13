@@ -7,6 +7,7 @@
   <ul class="d-flex flex-column">
     <li
       class="channels__item"
+      [routerLink]="channel.id"
       *ngFor="let channel of channels$ | async"
       id="{{channel.id}}"
       (click)="showChat(channel.id)"

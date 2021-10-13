@@ -29,9 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { reducers } from 'src/app/store/reducers';
 import { CommonModule } from '@angular/common';
 import { ChannelsEffects } from 'src/app/store/effects/channels.effects';
-import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
-import { entityConfig } from 'src/entity-metadata';
 import { FriendsEffects } from 'src/app/store/effects/friends.effects';
+import { RoutingModule } from 'src/app/routing.module';
+
 
 
 
@@ -57,6 +57,7 @@ import { FriendsEffects } from 'src/app/store/effects/friends.effects';
   imports: [
     CommonModule,
     BrowserModule,
+    RoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
@@ -71,12 +72,8 @@ import { FriendsEffects } from 'src/app/store/effects/friends.effects';
         strictActionImmutability: true
       },
     }),
-    // StoreModule.forFeature('messageReducer', fromMessage.reducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([MessageEffects, ChannelsEffects, FriendsEffects]),
-    // StoreModule.forRoot({}),
-    // EffectsModule.forRoot([]),
-    // EntityDataModule.forRoot(entityConfig)
   ],
   providers: [],
   bootstrap: [AppComponent],

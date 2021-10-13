@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromStore from '../../../store/reducers'
 import { FromMessage } from 'src/app/store/actions';
-import { ChatSidebarService } from 'src/app/2_chat-sidebar/chat-sidebar.service';
+import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
 
 
 @Component({
@@ -23,22 +23,22 @@ export class MessageComponent implements OnInit {
   }
 
   messages$: Observable<Message[]> = this.store.select(fromStore.selectAllMessages);
-  selectId: any;
-  ids: any
 
+  ids: any
 
   @Input()
 
   ngOnInit(): void {
     this.store.dispatch(FromMessage.loadMessage());
+    console.log(this.messages$)
   }
 
   deleteMessage(messageId: string) {
     this.store.dispatch(FromMessage.deleteMessage({ messageId }))
   }
 
-  showChat(id) {
-    this.chatService.getShowChat(id)
-  }
+  // showChat(id) {
+  //   this.chatService.getShowChat(id)
+  // }
 
 }
