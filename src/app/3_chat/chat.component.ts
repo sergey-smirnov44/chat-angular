@@ -15,7 +15,7 @@ import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
 import { FromEntityChannel } from 'src/app/store/actions';
 import { log } from 'util';
-import { selectEntityChannel } from 'src/app/store/reducers';
+import * as fromStore from 'src/app/store/reducers';
 
 
 @Component({
@@ -24,27 +24,20 @@ import { selectEntityChannel } from 'src/app/store/reducers';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-
-
-  channel$: Subscription
-
-
   get id(): any { return this.ac.snapshot.params.id }
-  get name(): any { return this.ac.snapshot.params.name }
+  nameChannel$: Observable<EntityChannel[]> = this.store.select(fromStore.selectEntityChannel)
 
   constructor(
     private store: Store<fromMessage.State>,
     private chatService: ChatSidebarService,
     private ac: ActivatedRoute
   ) {
-
-
-    console.log(  this.nameChannel$, 'nameChannel')
+    console.log(this.nameChannel$, 'nameChannel')
     console.log(this.ac.snapshot, 1289)
   }
 
   private subscription: Subscription
-  nameChannel$: Observable<EntityChannel[]> = this.store.select(selectEntityChannel)
+
 
 
   // ch = this.subscription.ac.params.subscribe(params => this.id = params['id']);

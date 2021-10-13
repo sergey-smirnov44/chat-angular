@@ -22,7 +22,7 @@ export class ChannelsComponent implements OnInit {
     private readonly chatService: ChannelService,
     private ac: ActivatedRoute
   ) {
-
+  this.id = ac.snapshot.params.id
   }
 
   channels$: Observable<Channels[]> = this.store.select(fromStore.selectAllChannels)
