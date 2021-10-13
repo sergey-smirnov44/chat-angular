@@ -25,7 +25,7 @@ export class ChannelsEffects {
   loadEntityChannel$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(FromEntityChannel.getEntityChannel),
-      mergeMap( action => this.channelService.getChannelsByID(action.id, action.params)
+      mergeMap( action => this.channelService.getChannelsByID(action.id)
         .pipe(
           map(data => FromEntityChannel.getEntityChannelSuccess({ channel: data })),
           catchError(() => of(FromEntityChannel.getEntityChannelFailure))

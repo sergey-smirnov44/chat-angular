@@ -4,8 +4,8 @@ import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { FromEntityChannel } from 'src/app/store/actions';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
 
-
 export interface State extends EntityState<EntityChannel> {
+  name: string
 }
 
 export function selectMessageId(a: EntityChannel) {
@@ -16,20 +16,22 @@ export const adapter = createEntityAdapter<EntityChannel>({
   selectId: selectMessageId
 });
 
+
 export const initialState: State = adapter.getInitialState({
-  error: null
+  error: null,
+  name: '1'
 });
 
 const entityChannelReducer = createReducer(
   initialState,
-  on(FromEntityChannel.getEntityChannel, (state, action) => {
+  on(FromEntityChannel.getEntityChannel, (state, channel) => {
     return {
       ...state,
       error: null
     }
   }),
-  on(FromEntityChannel.getEntityChannelSuccess, (state, { channel }  ) => {
-    return adapter.setAll(channel, {...state} )
+  on(FromEntityChannel.getEntityChannelSuccess, (state, channel ) => {
+    return adapter.setAll(channel.channel.message, {...state},   )
   }),
   on(
     FromEntityChannel.getEntityChannelFailure, (state, channel) => {
@@ -45,8 +47,8 @@ export function reducer(state: State | undefined, channel: Action) {
 }
 
 const {
-  selectIds
+  selectAll
 } = adapter.getSelectors();
 
-export const selectEntityChannel = selectIds;
+export const selectEntityChannel = selectAll;
 
