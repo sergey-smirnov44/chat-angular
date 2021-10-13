@@ -31,7 +31,7 @@ const entityChannelReducer = createReducer(
     }
   }),
   on(FromEntityChannel.getEntityChannelSuccess, (state, channel ) => {
-    return adapter.setAll(channel.channel.message, {...state},   )
+    return adapter.setAll(channel.channel.message, {...state},  channel.channel.name )
   }),
   on(
     FromEntityChannel.getEntityChannelFailure, (state, channel) => {
