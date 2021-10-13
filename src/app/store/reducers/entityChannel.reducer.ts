@@ -3,6 +3,7 @@ import { EntityState, createEntityAdapter } from '@ngrx/entity';
 
 import { FromEntityChannel } from 'src/app/store/actions';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
+import { Message } from 'postcss';
 
 export interface State extends EntityState<EntityChannel> {
   name: string
@@ -19,19 +20,19 @@ export const adapter = createEntityAdapter<EntityChannel>({
 
 export const initialState: State = adapter.getInitialState({
   error: null,
-  name: '1'
+  name: ''
 });
 
 const entityChannelReducer = createReducer(
   initialState,
-  on(FromEntityChannel.getEntityChannel, (state, channel) => {
+  on(FromEntityChannel.getEntityChannel, (state) => {
     return {
       ...state,
       error: null
     }
   }),
   on(FromEntityChannel.getEntityChannelSuccess, (state, channel ) => {
-    return adapter.setAll(channel.channel.message, {...state},  channel.channel.name )
+    return adapter.setAll( [], {...state,  name: channel.channel.name })
   }),
   on(
     FromEntityChannel.getEntityChannelFailure, (state, channel) => {

@@ -8,14 +8,14 @@ export interface State {
   messages: fromMessage.State,
   channels: fromChannels.State,
   friends: fromFriends.State,
-  entityChannel: fromEntityChannel.State
+  channel: fromEntityChannel.State
 }
 
 export const reducers: ActionReducerMap<State> = {
   messages: fromMessage.reducer,
   channels: fromChannels.reducer,
   friends: fromFriends.reducer,
-  entityChannel: fromEntityChannel.reducer
+  channel: fromEntityChannel.reducer
 }
 
 export const selectMessageState = createFeatureSelector<fromMessage.State>('messages')

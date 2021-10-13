@@ -39,12 +39,12 @@ export class ChatComponent implements OnInit {
   ) {
 
 
-
+    console.log(  this.nameChannel$, 'nameChannel')
     console.log(this.ac.snapshot, 1289)
   }
 
   private subscription: Subscription
-  nameChannel = this.store.select(selectEntityChannel)
+  nameChannel$: Observable<EntityChannel[]> = this.store.select(selectEntityChannel)
 
 
   // ch = this.subscription.ac.params.subscribe(params => this.id = params['id']);

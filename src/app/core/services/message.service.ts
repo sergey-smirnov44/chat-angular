@@ -15,6 +15,6 @@ export class MessageService {
 
 
   public getMessages(): Observable<Message[]> {
-    return this.http.get<Message[]>(this.baseUrl + 'channels/')
+    return this.http.get<Message[]>(this.baseUrl + 'channels/' )
   }
 }
