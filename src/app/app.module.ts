@@ -24,13 +24,14 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { MessageEffects } from 'src/app/store/effects/message.effects';
+// import { MessageEffects } from 'src/app/store/effects/message.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers } from 'src/app/store/reducers';
 import { CommonModule } from '@angular/common';
 import { ChannelsEffects } from 'src/app/store/effects/channels.effects';
 import { FriendsEffects } from 'src/app/store/effects/friends.effects';
 import { RoutingModule } from 'src/app/routing.module';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -52,6 +53,7 @@ import { RoutingModule } from 'src/app/routing.module';
     DeleteUserComponent,
     BtnsendComponent,
     AddNewFriendComponent,
+    HomeComponent,
 
   ],
   imports: [
@@ -73,7 +75,7 @@ import { RoutingModule } from 'src/app/routing.module';
       },
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([MessageEffects, ChannelsEffects, FriendsEffects]),
+    EffectsModule.forRoot([ ChannelsEffects, FriendsEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

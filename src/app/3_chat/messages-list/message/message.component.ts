@@ -3,7 +3,7 @@ import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromStore from '../../../store/reducers'
-import { FromMessage } from 'src/app/store/actions';
+import { FromEntityChannel } from 'src/app/store/actions';
 import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
 
 
@@ -21,24 +21,18 @@ export class MessageComponent implements OnInit {
   ) {
 
   }
-messages$: null
-//   messages$: Observable<Message[]> = this.store.select(fromStore.selectAllMessages);
 
-  ids: any
+  messages$: Observable<Message[]> = this.store.select(fromStore.selectEntityChannel);
+
+
 
   @Input()
 
   ngOnInit(): void {
-    // this.store.dispatch(FromMessage.loadMessage());
-    // console.log(this.messages$)
+
   }
 
   deleteMessage(messageId: string) {
-    this.store.dispatch(FromMessage.deleteMessage({ messageId }))
+    this.store.dispatch(FromEntityChannel.deleteMessage({ messageId }))
   }
-
-  // showChat(id) {
-  //   this.chatService.getShowChat(id)
-  // }
-
 }

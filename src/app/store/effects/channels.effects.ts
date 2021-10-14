@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, Observable, of } from 'rxjs';
+import { catchError, map, mergeMap, Observable, of, switchMap } from 'rxjs';
 import { Action } from '@ngrx/store';
 import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
 import { FromChannels, FromEntityChannel } from 'src/app/store/actions';

@@ -1,12 +1,11 @@
 <section class="main-area">
   <div class="main-area__scroll" onscroll="onscroll" id="showScroll"></div>
   <div class="top-menu d-flex align-items-center">
-
-    <h1 class="top-menu__title"  ># {{id}}{{nameChannel$ | async}} </h1>
-
-
+  <div fxLayout>
+    <span class="top-menu__title"># </span>
+    <h1 class="top-menu__title" > {{ name$ | async}} </h1>
     <mat-icon aria-label="Example home icon">star_outline</mat-icon>
-
+  </div>
 
     <div class="top-menu__count offset-7">
       <mat-icon class="icon-people">perm_identity</mat-icon>

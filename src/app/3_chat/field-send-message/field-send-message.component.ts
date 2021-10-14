@@ -3,7 +3,7 @@ import { Guid } from 'guid-typescript';
 import { Store } from '@ngrx/store';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 import * as fromStore from '../../store/reducers'
-import { sendMessage } from 'src/app/store/actions/message.actions';
+import { FromEntityChannel } from 'src/app/store/actions';
 
 @Component({
   selector: 'app-field-send-message',
@@ -35,7 +35,7 @@ export class FieldSendMessageComponent implements OnInit {
       console.log(newMessage)
 
 
-      this.store.dispatch(sendMessage({ message: newMessage }))
+      this.store.dispatch(FromEntityChannel.sendMessage({ message: newMessage }))
       this.isEmojiPickerVisible = false
       this.fieldInput = ''
     }

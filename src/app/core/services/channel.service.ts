@@ -1,12 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Channels } from 'src/app/core/common/2_chat-sidebar/channelsChatSidebar.interface';
-import { Observable, take } from 'rxjs';
-import { Friends } from 'src/app/core/common/2_chat-sidebar/friendsChatSideBar.interface';
-import { Store } from '@ngrx/store';
-import * as fromMessage from 'src/app/store/reducers'
-import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
-import { log } from 'util';
+import { Observable } from 'rxjs';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
 
 
@@ -17,10 +12,7 @@ export class ChannelService {
 
   baseUrl = 'http://localhost:3000/'
 
-  constructor(
-    private store: Store<fromMessage.State>,
-    private http: HttpClient
-  ) {}
+  constructor( private http: HttpClient ) {}
 
   public getChannels(): Observable<Channels[]> {
     return this.http.get<Channels[]>(this.baseUrl + 'channels')
@@ -29,8 +21,4 @@ export class ChannelService {
   public getChannelsByID(id): Observable<EntityChannel> {
     return this.http.get<EntityChannel>(this.baseUrl + 'channels/' + id)
   }
-
-
-
-
 }
