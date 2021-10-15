@@ -13,18 +13,16 @@ import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnInit {
-  friend: boolean;
-
+  friends$: Observable<Friends[]> = this.store.select(FromStore.selectAllFriends)
   constructor(
     private store: Store<FromStore.State>,
-  private readonly chatService: ChatSidebarService
+    private readonly chatService: ChatSidebarService
   ) { }
-
-  friends$: Observable<Friends[]> = this.store.select(FromStore.selectAllFriends)
 
   ngOnInit(): void {
     this.store.dispatch(fromFriends.FromFriends.loadFriendsList())
   }
+
   showUser(id) {
     this.chatService.getFriendsById(id).subscribe(res => console.log(res))
   }

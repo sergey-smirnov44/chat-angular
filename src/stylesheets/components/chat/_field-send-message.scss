@@ -2,16 +2,33 @@
 .write-message {
   width: 100%;
   position: sticky;
-
   bottom: 0;
   z-index: 999;
 
-  &__attach {position: absolute; top: 25px; left: 25px; cursor: pointer; color: #999}
+  &__attach {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+    color: #999
+  }
 
-  &__audio-message {position: absolute; top: 25px; left: 55px; cursor: pointer; color: #999}
+  &__audio-message {
+    position: absolute;
+    top: 25px;
+    left: 55px;
+    cursor: pointer;
+    color: #999
+  }
 
-  &__emoji { position: absolute; top: 25px; border: 0;
-    right: 25px; background: transparent; color: #999}
+  &__emoji {
+    position: absolute;
+    top: 25px;
+    border: 0;
+    right: 25px;
+    background: transparent;
+    color: #999
+  }
 
   &__emoji-mart {
     position: absolute;
@@ -20,18 +37,21 @@
   }
 
 
+  .write-message__text-field {
 
-
-  input.write-message__text-field {
-    width: 100%;
+    resize: none;
+    width: inherit;
+    height: inherit;
     padding-top: 25px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     padding-left: 90px;
     border: 0;
     border-top: 2px solid rgba(0, 0, 0, .24);
+    word-wrap: break-word
   }
 
 }
+
 .icon-smile {
   position: absolute;
 }

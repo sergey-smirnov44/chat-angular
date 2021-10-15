@@ -9,21 +9,18 @@
   line-height: 14px;
   margin: 20px 0;
   display: flex;
-
-
+  width: 93%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &__photo {
-
     width: 34px;
     height: 34px;
-
   }
 
   &__name {
     color: #000;
     font-weight: bold;
     margin-left: 5px;
-
-
   }
 
   &__time {
@@ -45,23 +42,24 @@
     background: transparent;
     padding: 0;
     transition: .3s;
+
     &:hover {
       color: #000
     }
   }
 
   &__text {
+
     font-size: 13px;
     line-height: 20px;
     color: #000;
     margin-left: 5px;
     white-space: pre-wrap;
-
+    text-overflow: ellipsis;
 
     &--answer {
       line-height: 18px;
       color: #3577ef;
-
     }
   }
 }

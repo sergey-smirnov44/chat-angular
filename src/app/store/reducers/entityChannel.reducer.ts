@@ -1,10 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
-
-import { FromEntityChannel, FromMessage } from 'src/app/store/actions';
-import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
+import { FromEntityChannel } from 'src/app/store/actions';
 import { Message } from '../../core/common/3_chat/messageChat.interface'
-import { Channel } from 'src/app/core/common/3_chat/channelChat.interface';
 
 export interface State extends EntityState<Message> {
   name: string
@@ -17,7 +14,6 @@ export function selectMessageId(a: Message) {
 export const adapter = createEntityAdapter<Message>({
   selectId: selectMessageId
 });
-
 
 export const initialState: State = adapter.getInitialState({
   error: null,

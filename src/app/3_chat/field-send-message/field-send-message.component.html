@@ -5,7 +5,7 @@
   <mat-icon alt="audio-message"
             class="write-message__audio-message">mic
   </mat-icon>
-  <input set="apple" type="text" class="write-message__text-field" placeholder="Message in #general"
+  <input set="apple" type="text" class="write-message__text-field"  ng-maxlength="40" placeholder="Message in #general"
          [(ngModel)]="fieldInput" (keydown.enter)="sendText()">
   <button class="write-message__emoji" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
     <mat-icon>sentiment_satisfied_alt</mat-icon>

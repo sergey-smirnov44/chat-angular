@@ -17,7 +17,10 @@ import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.
 export class ChannelsComponent implements OnInit {
   constructor(
     private store: Store<fromStore.State>,
+    private router: Router,
+    private ac: ActivatedRoute
   ) { }
+
   channels$: Observable<Channels[]> = this.store.select(fromStore.selectAllChannels)
 
   ngOnInit(): void {
@@ -25,7 +28,8 @@ export class ChannelsComponent implements OnInit {
   }
 
   showChannel(id) {
-    this.store.dispatch(fromEntityChannel.getEntityChannel({ id }))
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false
+    this.router.onSameUrlNavigation = 'ignore';
+    this.router.navigate([id]);
   }
-
 }

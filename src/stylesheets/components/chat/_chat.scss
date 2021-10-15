@@ -6,6 +6,7 @@
   font-size: 20px;
   color: #999;
 }
+
 .top-menu {
   position: sticky;
   top: 0;
@@ -50,23 +51,12 @@
     line-height: 17px;
     color: #a4a4a4;
     position: relative;
-
-    //&:after {
-    //  content: '';
-    //  position: absolute;
-    //  background: url('../../../assets/img/dest/main-menu/man.png');
-    //  width: 10px;
-    //  height: 14px;
-    //  top: 0;
-    //  left: -15px;
-    //}
   }
-
-
 
   &__notifications {
     color: #999;
     margin-left: 23px;
+    align-self: center;
     position: relative;
     cursor: pointer;
 
@@ -89,6 +79,7 @@
   }
 
 }
+
 .color-white {
   color: #999;
 }

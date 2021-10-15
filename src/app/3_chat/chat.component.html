@@ -1,19 +1,20 @@
 <section class="main-area">
   <div class="main-area__scroll" onscroll="onscroll" id="showScroll"></div>
-  <div class="top-menu d-flex align-items-center">
+  <div class="top-menu d-flex justify-content-between">
   <div fxLayout>
     <span class="top-menu__title"># </span>
     <h1 class="top-menu__title" > {{ name$ | async}} </h1>
     <mat-icon aria-label="Example home icon">star_outline</mat-icon>
   </div>
 
-    <div class="top-menu__count offset-7">
+    <div fxLayout>
+    <div class="top-menu__count">
       <mat-icon class="icon-people">perm_identity</mat-icon>
       1,093
     </div>
 
-
     <app-search></app-search>
+
     <mat-icon class="top-menu__notifications">notifications</mat-icon>
 
     <button mat-icon-button [matMenuTriggerFor]="menu" class="top-menu__more"
@@ -31,7 +32,7 @@
         <span>mute messages this channel</span>
       </button>
     </mat-menu>
-
+    </div>
   </div>
   <app-messages-list></app-messages-list>
   <app-field-send-message></app-field-send-message>

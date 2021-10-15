@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import * as fromMessage from 'src/app/store/reducers';
 import { Observable, Subscription, switchMap } from 'rxjs';
 import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
-import { ActivatedRoute, ParamMap, Params } from '@angular/router';
+import { ActivatedRoute, ParamMap, Params, Router } from '@angular/router';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
 import * as fromStore from 'src/app/store/reducers';
 import { ChannelService } from 'src/app/core/services/channel.service';
@@ -25,7 +25,8 @@ export class ChatComponent implements OnInit {
   constructor(
     private store: Store<fromMessage.State>,
     private chatService: ChannelService,
-    private ac: ActivatedRoute
+    private ac: ActivatedRoute,
+    private router: Router
   ) {
 
     console.log(this.nameChannel$, 'nameChannel')
@@ -38,12 +39,8 @@ export class ChatComponent implements OnInit {
     this.store.dispatch(fromEntityChannel.getEntityChannel({ id: this.id }))
   }
 
-
-
-
   deleteAllMessages() {
     this.store.dispatch(fromEntityChannel.clearChat({ ids: [] }))
   }
-
 }
 

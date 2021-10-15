@@ -6,9 +6,10 @@
   background: #000;
   mix-blend-mode: normal;
   opacity: 0.7;
-  height: 100%;
+  min-height: 100vh;
   padding-top: 12px;
   width: 72px;
+  height: 100%;
 
   .button-macos {
     position: sticky;

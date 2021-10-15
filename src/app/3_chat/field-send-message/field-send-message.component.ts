@@ -14,7 +14,7 @@ export class FieldSendMessageComponent implements OnInit {
   constructor(private store: Store<fromStore.State>) {
   }
 
-  public fieldInput = '';
+  public fieldInput = null;
   public isEmojiPickerVisible: boolean;
 
   public addEmoji(event) {
@@ -29,16 +29,14 @@ export class FieldSendMessageComponent implements OnInit {
         photo: 'https://art.pixilart.com/8a47f5d9039d919.gif',
         name: 'Sergey',
         text: this.fieldInput,
-        // time: Date.now,
         date: new Date().toISOString()
       }
-      console.log(newMessage)
-
 
       this.store.dispatch(FromEntityChannel.sendMessage({ message: newMessage }))
       this.isEmojiPickerVisible = false
       this.fieldInput = ''
     }
+
   }
 
   ngOnInit(): void {

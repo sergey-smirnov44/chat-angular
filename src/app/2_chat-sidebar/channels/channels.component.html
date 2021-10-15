@@ -9,7 +9,6 @@
       class="channels__item"
       [routerLink]="channel.id"
       *ngFor="let channel of channels$ | async"
-      id="{{channel.name}}"
       (click)="showChannel(channel.id)"
     >
       {{'#' + channel.name}}
