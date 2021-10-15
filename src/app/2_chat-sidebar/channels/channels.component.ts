@@ -29,7 +29,6 @@ export class ChannelsComponent implements OnInit {
 
   showChannel(id) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false
-    this.router.onSameUrlNavigation = 'ignore';
     this.router.navigate([id]);
   }
 }
