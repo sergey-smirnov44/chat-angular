@@ -27,11 +27,11 @@ export class MessageComponent implements OnInit, OnDestroy {
     //   data.forEach(el => console.log(el))
     // })
 
-    this.mes = this.messages$.pipe(map(itemData => {
-      return itemData.map(value => value)
-    })).subscribe(x => x.filter(a => a.text === this.SearchValue).map(y => console.log(y)))
-    console.log(this.SearchValue)
-    // const newArr: Subscription = this.messages$.pipe(filter(com => com.id > 2)).subscribe(x => {console.log(x)})
+    // this.mes = this.messages$.pipe(map(itemData => {
+    //   return itemData.map(value => value)
+    // })).subscribe(x => x.filter(a => a.text === this.SearchValue).map(y => console.log(y)))
+    // console.log(this.SearchValue)
+
   }
 
   deleteMessage(messageId: string) {
@@ -39,6 +39,9 @@ export class MessageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.mes.unsubscribe()
+    if (this.mes) {
+      this.mes.unsubscribe()
+    }
+
   }
 }

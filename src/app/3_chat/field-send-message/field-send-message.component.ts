@@ -23,7 +23,7 @@ export class FieldSendMessageComponent implements OnInit {
   public fieldInput = null;
   public isEmojiPickerVisible: boolean;
 
-  get id(): string { return this.ac.snapshot.params['id']}
+
 
   name$: Observable<string> = this.store.select(fromStore.getNameChannel)
 
@@ -49,7 +49,7 @@ export class FieldSendMessageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(fromEntityChannel.getEntityChannel({ id: this.id }))
+    // this.store.dispatch(fromEntityChannel.getEntityChannel({ id: this.id }))
   }
 
 
