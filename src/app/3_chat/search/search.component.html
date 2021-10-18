@@ -1,4 +1,4 @@
 <div class="search">
-  <input type="text"  #searchField  (keyup)="searchFieldChanged(searchField.value)" class="search__field error" placeholder="Search..."/>
+  <input type="text"  #searchField  (keydown.enter)="getQuery(searchField.value)" class="search__field error" placeholder="Search..."/>
   <mat-icon class="search__loupe">search</mat-icon>
 </div>

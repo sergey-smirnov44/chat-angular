@@ -1,11 +1,11 @@
 <div fxLayout="row" class="main">
   <app-services></app-services>
-  <app-chat-sidebar ></app-chat-sidebar>
+  <app-chat-sidebar></app-chat-sidebar>
 <div class="col-xl-8 p-0 m-0">
     <router-outlet></router-outlet>
 </div>
 
-  <app-user class="col p-0 m-0"></app-user>
+  <app-user class=" p-0 m-0" *ngIf="showThis"></app-user>
 </div>
 
 

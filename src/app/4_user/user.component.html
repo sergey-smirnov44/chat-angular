@@ -1,4 +1,11 @@
-<div class="infouser" id="infoUser">
+<button class="hide-user-btn" (click)="toggle()"   *ngIf="!showThis" color="primary" aria-label="Example icon button with a delete icon">
+  <mat-icon class="hide-user-btn__icon">arrow_back_ios</mat-icon>
+</button>
+<button class="hide-user-btn" (click)="toggle()"  color="primary" *ngIf="showThis" aria-label="Example icon button with a delete icon">
+  <mat-icon class="hide-user-btn__icon">arrow_forward_ios</mat-icon>
+</button>
+<div class="infouser" id="infoUser"  *ngIf="showThis">
+
     <img src="../../assets/img/dest/info-column/girl.png" alt="photo" class="infouser__photo">
     <div class="info-column">
       <p class="info-column__name">Amilia Luna</p>

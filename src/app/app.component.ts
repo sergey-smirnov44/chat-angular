@@ -4,7 +4,8 @@
  * необходимо в Angular установить ChangeDetection: OnPush — то есть компоненты будут
  * обновляться при изменении @Input() а также изменения могут быть вызваны явно, с помощью сервиса ChangeDetectionRef.
  */
-import { ChangeDetectionStrategy, Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,12 @@ import { ChangeDetectionStrategy, Component} from '@angular/core';
 })
 export class AppComponent  {
   constructor() {}
+  public showThis = true;
+
+  toogle() {
+      this.showThis = !this.showThis
+  }
+
 }
 
 

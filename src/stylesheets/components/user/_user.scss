@@ -1,3 +1,21 @@
+.hide-user-btn {
+  position: fixed;
+  top: 45%;
+  border: 0;
+  width: 30px;
+  height: 50px;
+  z-index: 3;
+  transition: ease all .4s;
+
+  &:hover {
+    background: #444;
+    color: #b3beb6;
+  }
+  &__icon {
+    margin-left: 25%;
+    margin-top: 10px;
+  }
+}
 .infouser {
   background: rgba(0, 0, 0, .2);
   width: 100%;

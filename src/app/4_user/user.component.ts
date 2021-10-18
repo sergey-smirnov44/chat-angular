@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  public showThis = false;
+  public buttonName = 'Show';
+
+
+
+  constructor(
+    private router: Router,
+
+  ) { }
 
   ngOnInit(): void {
   }
 
+  hasRoute(route: string) {
+    return this.router.url.includes(route);
+  }
+
+  toggle() {
+   this.showThis = !this.showThis
+  }
 }

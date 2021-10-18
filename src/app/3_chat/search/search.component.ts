@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
-import * as FromMessage from 'src/app/store/actions'
-import { cdkVariables } from '@angular/material/schematics/ng-update/migrations/theming-api-v12/config';
+import * as fromStore from '../../store/reducers'
+import { SearchService } from 'src/app/core/services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -16,18 +16,18 @@ export class SearchComponent implements OnInit {
   @Input() message: Message[]
 
   constructor(
-    private store: Store<Message>
+    private store: Store<fromStore.State>,
+    private searchService: SearchService
   ) { }
 
   ngOnInit(): void {
   }
 
 
-  searchFieldChanged(value: string) {
-    // this.store.dispatch(FromMessage.FromMessage.searchMessage({ query: value }))
-    // console.log(value)
-
+  getQuery(value: string) {
+    this.searchService.searchFieldChanged(value)
   }
+
 }
 
 
