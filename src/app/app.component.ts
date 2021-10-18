@@ -15,11 +15,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class AppComponent  {
   constructor() {}
-  public showThis = true;
+  public showThis = false;
+  public status = true;
 
-  toogle() {
-      this.showThis = !this.showThis
-  }
+
 
 }
 

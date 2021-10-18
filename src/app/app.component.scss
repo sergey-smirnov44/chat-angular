@@ -1,3 +1,28 @@
-.col-xl-10 {
-  width: 100%;
+
+.hide-user-btn {
+  position: absolute;
+  right: 2px;
+  top: 45%;
+  border: 0;
+  width: 30px;
+  height: 50px;
+  z-index: 3;
+  transition: ease all .4s;
+  opacity: .5;
+
+  &:hover {
+    background: #444;
+    color: #b3beb6;
+    opacity: 1;
+  }
+
+  &__icon {
+    margin-left: 25%;
+    margin-top: 10px;
+  }
+}
+
+
+.residual-width {
+  width: 83%;
 }
