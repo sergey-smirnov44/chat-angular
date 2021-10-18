@@ -4,6 +4,9 @@ import { Store } from '@ngrx/store';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 import * as fromStore from '../../store/reducers'
 import { FromEntityChannel } from 'src/app/store/actions';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import * as fromEntityChannel from 'src/app/store/actions/entityChannel.actions';
 
 @Component({
   selector: 'app-field-send-message',
@@ -11,14 +14,20 @@ import { FromEntityChannel } from 'src/app/store/actions';
   styleUrls: ['./field-send-message.component.scss']
 })
 export class FieldSendMessageComponent implements OnInit {
-  constructor(private store: Store<fromStore.State>) {
+  constructor(
+    private store: Store<fromStore.State>,
+    private ac: ActivatedRoute,
+  ) {
   }
 
   public fieldInput = null;
   public isEmojiPickerVisible: boolean;
 
-  public addEmoji(event) {
+  get id(): string { return this.ac.snapshot.params['id']}
 
+  name$: Observable<string> = this.store.select(fromStore.getNameChannel)
+
+  public addEmoji(event) {
     this.fieldInput = `${ this.fieldInput }${ event.emoji.native }`;
   }
 
@@ -40,7 +49,7 @@ export class FieldSendMessageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.store.dispatch(fromEntityChannel.getEntityChannel({ id: this.id }))
   }
 
 
