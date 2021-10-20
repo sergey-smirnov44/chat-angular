@@ -4,7 +4,9 @@ import { FromEntityChannel } from 'src/app/store/actions';
 import { Message } from '../../core/common/3_chat/messageChat.interface'
 
 export interface State extends EntityState<Message> {
-  name: string
+  error: any;
+  name: string;
+  searchValue: string;
 }
 
 export function selectMessageId(a: Message) {
@@ -18,6 +20,7 @@ export const adapter = createEntityAdapter<Message>({
 export const initialState: State = adapter.getInitialState({
   error: null,
   name: '',
+  searchValue: ''
 });
 
 const entityChannelReducer = createReducer(
@@ -34,6 +37,12 @@ const entityChannelReducer = createReducer(
       ...state,
       name: channel.name,
     })
+  }),
+  on(FromEntityChannel.getValueSearch, (state,  action ) => {
+    return {
+      ...state,
+      searchValue: action.searchValue
+    }
   }),
   on(
     FromEntityChannel.getEntityChannelFailure, (state, channel) => {
@@ -66,7 +75,7 @@ const entityChannelReducer = createReducer(
         ...state,
         error: action.error
       }
-    }),
+    })
 );
 
 export function reducer(state: State | undefined, channel: Action) {
@@ -77,6 +86,9 @@ const {
   selectAll
 } = adapter.getSelectors();
 
-export const selectEntityChannel = selectAll;
+export const selectEntityChannel = (state: State) => state?.searchValue ? Object.values(state.entities)
+  .filter(m => m.text.includes(state.searchValue)
+    || m.name.includes(state.searchValue)) : Object.values(state.entities);
+
 export const getNameChannel = (state: State) => state.name
 

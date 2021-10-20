@@ -19,20 +19,15 @@ import * as fromEntityChannel from 'src/app/store/actions/entityChannel.actions'
 })
 export class ChatComponent implements OnInit {
 
-
-  nameChannel$: Observable<Message[]> = this.store.select(fromStore.selectEntityChannel)
-
   constructor(
     private store: Store<fromMessage.State>,
     private chatService: ChannelService,
     private ac: ActivatedRoute,
     private router: Router
-  ) {
+  ) {}
 
-    console.log(this.nameChannel$, 'nameChannel')
-    console.log(this.ac.snapshot, 1289)
-  }
-  get id(): string  { return this.ac.snapshot.params['id']}
+  get id(): string { return this.ac.snapshot.params['id']}
+
   name$: Observable<string> = this.store.select(fromStore.getNameChannel)
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { EntityChannel } from '../../core/common/2_chat-sidebar/entityChannel.interface'
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
+import { Search } from 'src/app/core/common/3_chat/search.interface';
 
 
 export const getEntityChannel = createAction(
@@ -68,3 +69,11 @@ export const loadMessageSuccess = createAction(
   '[MESSAGE] load message success',
   props<{ message: Message[] }>());
 
+/****************************************************************************/
+/***************************GET VALUE SEARCH***********************************/
+/****************************************************************************/
+
+export const getValueSearch = createAction(
+  '[SEARCH VALUE] get search value',
+  props<{ searchValue: any }>()
+)

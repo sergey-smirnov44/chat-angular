@@ -32,8 +32,7 @@ import { ChannelsEffects } from 'src/app/store/effects/channels.effects';
 import { FriendsEffects } from 'src/app/store/effects/friends.effects';
 import { RoutingModule } from 'src/app/routing.module';
 import { HomeComponent } from './home/home.component';
-
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -76,6 +75,7 @@ import { HomeComponent } from './home/home.component';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([ ChannelsEffects, FriendsEffects]),
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
