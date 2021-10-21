@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { debounceTime, distinctUntilChanged, fromEvent, map, Observable, of, Subject, Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged, Subject, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
-import { Search } from 'src/app/core/common/3_chat/search.interface';
+
 import * as fromStore from '../../store/reducers'
 import { FromEntityChannel } from 'src/app/store/actions';
-import { ofType } from '@ngrx/effects';
 
 
 
@@ -19,12 +18,9 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private store: Store<fromStore.State>,
-
   ) { }
-  searchValue$: Observable<string>
 
   @Input() message: Message[]
-  searchField: string;
   mess: Subscription
   fieldSearch: any;
   keyUp$: Subject<KeyboardEvent> = new Subject<KeyboardEvent>();
@@ -35,11 +31,15 @@ export class SearchComponent implements OnInit {
       distinctUntilChanged(),
       debounceTime(500)
     )
-      .subscribe( (data) =>
-    this.store.dispatch(FromEntityChannel.getValueSearch({ searchValue:  data})), error => error.toString());
-        // this.store.dispatch(FromEntityChannel.getValueSearch({ searchValue: this.keyUp$.event.target.value })), error => error);
-      // .subscribe( )
+      .subscribe((data) => {
+
+        if (data.toString().length  > 2 )
+         {this.store.dispatch(FromEntityChannel.getValueSearch({ searchValue: data }))}
+        else {
+          this.store.dispatch(FromEntityChannel.getValueSearch({ searchValue: '' }))
+        }
+      });
   };
-  }
+}
 
 
