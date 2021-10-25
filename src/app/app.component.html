@@ -3,6 +3,7 @@
   <app-chat-sidebar class="m-0 p-0"></app-chat-sidebar>
 <div [ngClass]="status ? 'col-xl-8 p-0 m-0' : 'p-0 m-0 residual-width'" >
     <router-outlet ></router-outlet>
+
   <button class="hide-user-btn" (click)="(status=!status) && (showThis = !showThis)"   *ngIf="showThis" color="primary" aria-label="Example icon button with a delete icon">
     <mat-icon class="hide-user-btn__icon">arrow_back_ios</mat-icon>
   </button>

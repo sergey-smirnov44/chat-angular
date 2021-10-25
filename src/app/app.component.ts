@@ -17,9 +17,7 @@ export class AppComponent  {
   constructor() {}
   public showThis = false;
   public status = true;
-
-
-
+  username = 'username'
 }
 
 

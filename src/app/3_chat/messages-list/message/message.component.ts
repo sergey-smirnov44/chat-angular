@@ -24,7 +24,7 @@ export class MessageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.newMess = this.messages$.pipe(map(thing =>
-       thing.sort(this.sortDate))).subscribe( () => this.messages$)
+      thing.sort(this.sortDate))).subscribe(() => this.messages$)
   }
 
   deleteMessage(messageId: string) {
@@ -47,4 +47,9 @@ export class MessageComponent implements OnInit, OnDestroy {
     }
     return 0;
   };
+
+
+
+
+
 }

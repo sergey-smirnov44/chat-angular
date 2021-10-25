@@ -21,10 +21,6 @@ export class ChatSidebarService {
     private http: HttpClient
   ) {}
 
-  public getChannels(): Observable<Channels[]> {
-    return this.http.get<Channels[]>(this.baseUrl + 'channels')
-  }
-
   public getFriendsList(): Observable<Friends[]> {
     return this.http.get<Friends[]>(this.baseUrl + 'users/')
   }
@@ -33,15 +29,11 @@ export class ChatSidebarService {
     return this.http.get<Friends[]>(this.baseUrl + 'users/' + id)
   }
 
+  public deleteFriendsById(id): Observable<Friends[]> {
+    return this.http.put<Friends[]>(this.baseUrl + 'users/' + id, { friend: 'false' })
+  }
 
-
-  //
-  // public getShowChat(id){
-  //   let message: Message = null
-  //   this.store.select(fromMessage.selectAllMessages).subscribe(mes => {
-  //     return message = mes[id - 1]
-  //   })
-  //   console.log(message)
-  //   // @Input message
-  // }
+  public addFriendsById(id): Observable<Friends[]> {
+    return this.http.put<Friends[]>(this.baseUrl + 'users/' + id, { friend: 'true' })
+  }
 }

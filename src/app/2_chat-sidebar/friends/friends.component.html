@@ -1,19 +1,38 @@
 <div class="friends">
-  <div class="friends d-flex justify-content-around">
-    <h2 class="friends__title">friends</h2>
-    <p class="friends__count"><span id="countFriends"></span></p>
-  </div>
-  <div class="friends__list" id="friends">
-    <div *ngFor="let friend of friends$ | async">
-      <div
-        (click)="showUser(friend.id)"
-        class="people  d-flex align-items-center"
-        *ngIf="friend.friend"
-      >
-        <div [ngClass]="friend.online ? 'people__status people__status--online' : 'people__status people__status--offline'"></div>
-        <img class="people__photo" src="{{friend.photo}}" alt="{{friend.name}}">
-        <div class="people__name">{{friend.name}}</div>
+  <mat-tab-group animationDuration="0ms">
+    <mat-tab label="Friends">
+      <div class="friends__list" id="friends">
+        <div *ngFor="let friend of friends$ | async |sortBy:'desc':'online'">
+          <div
+            (click)="showUser(friend.id)"
+            class="people  d-flex align-items-center"
+            *ngIf="friend.friend"
+          >
+            <div [ngClass]="friend.online ? 'people__status people__status--online' : 'people__status people__status--offline'"></div>
+            <img class="people__photo" src="{{friend.photo}}" alt="{{friend.name}}">
+            <div class="people__name">{{friend.name}}</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </mat-tab>
+
+    <mat-tab label="All users">
+
+      <div class="friends__list">
+        <div *ngFor="let friend of friends$ | async|sortBy:'desc':'online'">
+          <div
+            (click)="showUser(friend.id)"
+            class="people  d-flex align-items-center"
+          >
+            <div [ngClass]="friend.online ? 'people__status people__status--online' : 'people__status people__status--offline'"></div>
+            <img class="people__photo" src="{{friend.photo}}" alt="{{friend.name}}">
+            <div class="people__name">{{friend.name}}</div>
+          </div>
+        </div>
+      </div>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
 </div>

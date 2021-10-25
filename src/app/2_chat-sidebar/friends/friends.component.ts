@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as FromStore from '../../store/reducers'
 import { Observable } from 'rxjs';
@@ -10,7 +10,8 @@ import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
 @Component({
   selector: 'app-friends',
   templateUrl: './friends.component.html',
-  styleUrls: ['./friends.component.scss']
+  styleUrls: ['./friends.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FriendsComponent implements OnInit {
   friends$: Observable<Friends[]> = this.store.select(FromStore.selectAllFriends)

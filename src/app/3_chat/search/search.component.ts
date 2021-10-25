@@ -33,8 +33,8 @@ export class SearchComponent implements OnInit {
     )
       .subscribe((data) => {
 
-        if (data.toString().length  > 2 )
-         {this.store.dispatch(FromEntityChannel.getValueSearch({ searchValue: data }))}
+        if (data.toString().length  > 2)
+         {this.store.dispatch(FromEntityChannel.getValueSearch({ searchValue: data.toString().toLowerCase() }))}
         else {
           this.store.dispatch(FromEntityChannel.getValueSearch({ searchValue: '' }))
         }
