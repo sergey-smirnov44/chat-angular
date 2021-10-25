@@ -18,6 +18,7 @@ export class AppComponent  {
   public showThis = false;
   public status = true;
   username = 'username'
+  state = false
 }
 
 

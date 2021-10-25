@@ -46,7 +46,7 @@ export const getNameChannel = createSelector(
 
 export const selectUser = createSelector(
   selectUserState,
-  fromUser.selectUserId
+  fromUser.selectUser
 )
 
 

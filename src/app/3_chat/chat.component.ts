@@ -23,7 +23,6 @@ export class ChatComponent implements OnInit {
     private store: Store<fromMessage.State>,
     private chatService: ChannelService,
     private ac: ActivatedRoute,
-    private router: Router
   ) {}
 
   get id(): string { return this.ac.snapshot.params['id']}

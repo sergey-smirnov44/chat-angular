@@ -1,15 +1,9 @@
-<!--<button class="hide-user-btn" (click)="toggle()"   *ngIf="!showThis" color="primary" aria-label="Example icon button with a delete icon">-->
-<!--  <mat-icon class="hide-user-btn__icon">arrow_back_ios</mat-icon>-->
-<!--</button>-->
-<!--<button class="hide-user-btn" (click)="toggle()"  color="primary" *ngIf="showThis" aria-label="Example icon button with a delete icon">-->
-<!--  <mat-icon class="hide-user-btn__icon">arrow_forward_ios</mat-icon>-->
-<!--</button>-->
-<div class="infouser" id="infoUser" >
+<div class="infouser" id="infoUser" *ngFor="let user of users$ | async">
 
-    <img src="../../assets/img/dest/info-column/girl.png" alt="photo" class="infouser__photo">
+    <img src="{{user.photo}}" alt="photo" class="infouser__photo">
     <div class="info-column">
-      <p class="info-column__name">Amilia Luna</p>
-      <p class="info-column__profession">UI Designer</p>
+      <p class="info-column__name">{{user.name}}</p>
+      <p class="info-column__profession">{{user.profession}}</p>
       <ul class="social d-flex">
         <li class="social__item social__item--fb"></li>
         <li class="social__item social__item--tw"></li>
@@ -36,19 +30,19 @@
       </div>
       <div class="username">
         <p class="username__description">Username</p>
-        <p class="username__title">@amilia_lu</p>
+        <p class="username__title">{{user.username}}</p>
       </div>
       <div class="email">
-        <p class="email__description">Email</p>
-        <p class="email__title">a-luna@gmail.com</p>
+        <p class="email__description" *ngIf="user.email">Email</p>
+        <p class="email__title">{{user.email}}</p>
       </div>
       <div class="skype">
-        <p class="skype__description">Skype</p>
-        <p class="skype__title">amiluna</p>
+        <p class="skype__description" *ngIf="user.skype">Skype</p>
+        <p class="skype__title">{{user.skype}}</p>
       </div>
       <div class="timezone">
         <p class="timezone__description">Timezone</p>
-        <p class="timezone__time">2:21 PM Local time</p>
+        <p class="timezone__time">{{user.timezone}}</p>
       </div>
     </div>
   </div>

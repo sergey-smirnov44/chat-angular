@@ -63,7 +63,7 @@ const {
   selectAll
 } = adapter.getSelectors();
 
-export const selectUser = (state: State) =>  Object.values(state.entities);
-// export const selectUser = selectAll
+// export const selectUser = (state: State) =>  Object.values(state.entities);
+export const selectUser = selectAll
 
 
