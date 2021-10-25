@@ -21,6 +21,19 @@ export class FriendsEffects {
     )
   )
 
+  loadUser$: Observable<Action> = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FromFriends.loadFriendsList),
+      mergeMap(() => this.chatSidebarService.getFriendsList()
+        .pipe(
+          map(data => FromFriends.loadFriendsListSuccess({ friends: data })),
+          catchError(() => of(FromFriends.loadFriendsListFailure))
+        ))
+    )
+  )
+
+
+
 
 
 

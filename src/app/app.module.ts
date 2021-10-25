@@ -34,6 +34,7 @@ import { HomeComponent } from './home/home.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgpSortModule } from 'ngp-sort-pipe';
+import { UsersEffects } from 'src/app/store/effects/users.effects';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -78,8 +79,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
       },
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([ChannelsEffects, FriendsEffects]),
-
+    EffectsModule.forRoot([ChannelsEffects, FriendsEffects, UsersEffects]),
     SocketIoModule.forRoot(config),
     NgpSortModule
   ],
