@@ -35,10 +35,18 @@
 
     &:hover {
       width: 85%;
-      background: rgba(255, 255, 255, .2);
       color: #fff;
       border-radius: 8px;
       font-weight: bold;
     }
   }
+}
+
+.active-channel {
+
+  width: 85%;
+  background: rgba(255, 255, 255, .2);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: bold;
 }

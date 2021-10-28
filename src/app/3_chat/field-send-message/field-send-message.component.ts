@@ -19,7 +19,7 @@ export class FieldSendMessageComponent implements OnInit {
     private ac: ActivatedRoute,
   ) {
   }
-
+  isLoading$: Observable<boolean>
   public fieldInput = null;
   public isEmojiPickerVisible: boolean;
 

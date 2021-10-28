@@ -6,8 +6,9 @@
   <!--***************   список каналов  **********************-->
   <ul class="d-flex flex-column">
     <li
+      [routerLink]="'channels/' + channel.id"
       class="channels__item"
-      [routerLink]="channel.id"
+      routerLinkActive="active-channel"
       *ngFor="let channel of channels$ | async"
       (click)="showChannel(channel.id)"
     >
@@ -15,3 +16,5 @@
     </li>
   </ul>
 </div>
+<!--[ngClass]="'active' ? 'active-channel' : 'channels__item'"-->
+<!--(click)="showChannel(channel.id)"  нужно записать в li-->

@@ -28,7 +28,9 @@ export class ChatSidebarService {
   }
 
   public deleteFriendsById(id): Observable<User> {
+    console.log('delete')
     return this.http.put<User>(this.baseUrl + 'users/' + id, { friend: 'false' })
+
   }
 
   public addFriendsById(id): Observable<User> {

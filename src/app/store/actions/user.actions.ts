@@ -20,16 +20,16 @@ export const getUserFailure = createAction(
 /****************************************************************************/
 /***********************DELETE USER FROM FRIENDS*****************************/
 /****************************************************************************/
-// export const deleteUserFromFriends = createAction(
-//   '[USER] Delete Message',
-//   props<{ messageId: string }>());
-//
-// export const deleteMessageSuccess = createAction(
-//   '[USER EFFECT] Delete Message Success')
-//
-// export const deleteMessageFailure = createAction(
-//   '[USER EFFECT] Delete Message Failure',
-//   props<{ error: any }>())
+export const deleteUserFromFriends = createAction(
+  '[USER] Delete Friend',
+  props<{ id: string }>());
+
+export const deleteUserFromFriendsSuccess = createAction(
+  '[USER EFFECT] Delete Friend Success')
+
+export const deleteUserFromFriendsFailure = createAction(
+  '[USER EFFECT] Delete Friend Failure',
+  props<{ error: any }>())
 /****************************************************************************/
 /*************************ADD USER AS A FRIEND*******************************/
 /****************************************************************************/

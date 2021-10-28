@@ -1,25 +1,25 @@
 <div class="friends">
-  <mat-tab-group animationDuration="0ms">
-    <mat-tab label="Friends">
-      <div class="friends__list" id="friends">
-        <div *ngFor="let friend of friends$ | async |sortBy:'desc':'online'">
+  <mat-tab-group animationDuration="0ms" >
+    <mat-tab label="Friends()" >
+      <div class="friends__list" >
+        <div  *ngFor="let friend of friends$ | async | sortBy:'desc':'online'">
           <div
             (click)="showUser(friend.id)"
             class="people  d-flex align-items-center"
-            *ngIf="friend.friend"
+            *ngIf="friend.friend "
           >
             <div [ngClass]="friend.online ? 'people__status people__status--online' : 'people__status people__status--offline'"></div>
-            <img class="people__photo" src="{{friend.photo}}" alt="{{friend.name}}">
-            <div class="people__name">{{friend.name}}</div>
+            <img class="people__photo" src="{{friend.photo}} " alt="{{friend.name}} "  >
+            <div class="people__name">{{friend.name}} </div>
           </div>
         </div>
       </div>
     </mat-tab>
 
-    <mat-tab label="All users">
+    <mat-tab label="All users({{1000}})">
 
       <div class="friends__list">
-        <div *ngFor="let friend of friends$ | async|sortBy:'desc':'online'">
+        <div *ngFor="let friend of friends$ | async | sortBy:'desc':'online'; count as c">
           <div
             (click)="showUser(friend.id)"
             class="people  d-flex align-items-center"

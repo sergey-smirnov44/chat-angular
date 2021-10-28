@@ -1,19 +1,21 @@
 
 .mat-tab-label {
   min-width: 25px !important;
-  padding: 0 30px !important;
+  padding: 0 15px !important;
   background-color: transparent;
   color: #fff;
   font-weight: 700;
+  margin: 0 auto;
 }
 
 /* Styles for the active tab label */
 .mat-tab-label.mat-tab-label-active {
   min-width: 25px !important;
-  padding: 0 30px !important;
+  padding: 0 15px !important;
   background-color: transparent;
   color: #fff;
   font-weight: 700;
+  margin: 0 auto;
 }
 
 .mat-ripple .mat-tab-label .mat-focus-indicator .ng-star-inserted {

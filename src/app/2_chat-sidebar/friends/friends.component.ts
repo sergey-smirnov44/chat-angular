@@ -1,12 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as FromStore from '../../store/reducers'
-import { Observable } from 'rxjs';
+import { count, Observable } from 'rxjs';
 import { Friends } from 'src/app/core/common/2_chat-sidebar/friendsChatSideBar.interface';
 import * as fromFriends from '../../store/actions'
-import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import * as FromUser from '../../store/actions/user.actions'
 import { FromUsers } from '../../store/actions';
 
 
@@ -19,6 +16,8 @@ import { FromUsers } from '../../store/actions';
 export class FriendsComponent implements OnInit {
   friends$: Observable<Friends[]> = this.store.select(FromStore.selectAllFriends)
 
+  count = require('rxjs').count;
+
   constructor(
     private store: Store<FromStore.State>
   ) {}
@@ -28,6 +27,6 @@ export class FriendsComponent implements OnInit {
   }
 
   showUser(id) {
-    this.store.dispatch(FromUsers.getUser({id}))
+    this.store.dispatch(FromUsers.getUser({ id }))
   }
 }

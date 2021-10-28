@@ -1,39 +1,40 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { FromUsers } from 'src/app/store/actions';
 import { User } from 'src/app/core/common/4_user/user.interface';
 
-export interface State extends EntityState<User> {}
-
-export function selectUserId(a: User) {
-  return a.id;
+export interface State {
+  userInfo: User;
+  isLoading: boolean;
+  isLoaded: boolean;
 }
 
-export const adapter = createEntityAdapter<User>({
-  selectId: selectUserId
-});
+export const initialState: State = {
+  userInfo: null,
+  isLoading: true,
+  isLoaded: false,
+};
 
-export const initialState: State = adapter.getInitialState({
-  error: null
-});
-
-const entityUserReducer = createReducer(
+const userReducer = createReducer(
   initialState,
-  on(FromUsers.getUser, (state, user) => {
+  on(FromUsers.getUser, (state) => {
     return {
       ...state,
-      error: null,
-      id: user.id
+      userInfo: null
     }
   }),
   on(FromUsers.getUserSuccess, (state, { user }) => {
-    return adapter.setOne(user, { ...state })
+    return {
+      ...state,
+      isLoaded: true,
+      isLoading: false,
+      userInfo: user
+    }
   }),
   on(
     FromUsers.getUserFailure, (state, user) => {
       return {
         ...state,
-        error: user.err
+        userInfo: user.err
       }
     }),
 //   on(FromUsers.sendMessage, (state, { message }) => {
@@ -56,14 +57,9 @@ const entityUserReducer = createReducer(
 );
 
 export function reducer(state: State | undefined, user: Action) {
-  return entityUserReducer(state, user)
+  return userReducer(state, user)
 }
 
-const {
-  selectAll
-} = adapter.getSelectors();
-
-// export const selectUser = (state: State) =>  Object.values(state.entities);
-export const selectUser = selectAll
+export const selectUser = (state: State) => state.userInfo
 
 

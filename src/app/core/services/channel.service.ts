@@ -20,5 +20,6 @@ export class ChannelService {
 
   public getChannelsByID(id): Observable<EntityChannel> {
     return this.http.get<EntityChannel>(this.baseUrl + 'channels/' + id)
+
   }
 }

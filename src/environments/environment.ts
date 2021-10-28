@@ -5,13 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyC4y8CQpKFmWXHnRUe0gETYR7iEQegDmAU",
-    authDomain: "ng-fitness-tracker-50926.firebaseapp.com",
-    projectId: "ng-fitness-tracker-50926",
-    storageBucket: "ng-fitness-tracker-50926.appspot.com",
-    messagingSenderId: "1011154322668",
-    appId: "1:1011154322668:web:0d5b212fc3b1ba058151c9",
-    measurementId: "G-FBBPSYZQYH"
+    apiKey: "AIzaSyDCTbfSUYXNBTTbB6PGiWBCvnAM-64PqCQ",
+    authDomain: "chat-angular-6dfe6.firebaseapp.com",
+    projectId: "chat-angular-6dfe6",
+    storageBucket: "chat-angular-6dfe6.appspot.com",
+    messagingSenderId: "847230979141",
+    appId: "1:847230979141:web:81df479affb2cfba87e72c"
   }
 };
 

@@ -4,10 +4,10 @@ export interface User {
   profession?: string;
   social?: string;
   username: string;
-  email?: string;
+  email: string;
   skype?: string;
-  timezone: string;
+  timezone?: string;
   photo?: string;
-  friend: boolean;
-  online: boolean;
+  friend?: boolean;
+  online?: boolean;
 }

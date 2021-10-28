@@ -1,14 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-// import { clearChat, clearChatSuccess } from 'src/app/store/actions/message.actions';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromMessage from 'src/app/store/reducers';
-import { Observable, Subscription, switchMap } from 'rxjs';
-import { ChatSidebarService } from 'src/app/core/services/chat-sidebar.service';
-import { ActivatedRoute, ParamMap, Params, Router } from '@angular/router';
-import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import * as fromStore from 'src/app/store/reducers';
 import { ChannelService } from 'src/app/core/services/channel.service';
-import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
 import * as fromEntityChannel from 'src/app/store/actions/entityChannel.actions';
 
 

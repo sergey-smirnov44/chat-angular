@@ -21,7 +21,6 @@ export class ChannelsEffects {
     )
   )
 
-
   loadEntityChannel$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(FromEntityChannel.getEntityChannel),
@@ -34,12 +33,8 @@ export class ChannelsEffects {
     )
   )
 
-
   constructor(
     private actions$: Actions,
     private channelService: ChannelService
-  ) {
-
-  }
-
+  ) {}
 }

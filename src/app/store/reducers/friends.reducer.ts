@@ -15,7 +15,7 @@ export const adapter = createEntityAdapter<Friends>({
 });
 
 export const initialState: State = adapter.getInitialState({
-  error: null
+  error: null,
 });
 
 const friendsReducer = createReducer(

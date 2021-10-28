@@ -1,4 +1,4 @@
-<div class="infouser" id="infoUser" *ngFor="let user of users$ | async">
+<div class="infouser" id="infoUser" *ngIf="user$ | async as user">
 
     <img src="{{user.photo}}" alt="photo" class="infouser__photo">
     <div class="info-column">

@@ -1,5 +1,5 @@
 <div class="write-message" id="form"  >
-
+  <mat-spinner *ngIf="isLoading$ | async " mode="indeterminate" fxLayoutAlign="center center"></mat-spinner>
   <mat-icon alt="attach" class="write-message__attach">attach_file</mat-icon>
 
   <mat-icon alt="audio-message"
