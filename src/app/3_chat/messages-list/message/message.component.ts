@@ -5,6 +5,7 @@ import { map, mergeMap, Observable, Subscription } from 'rxjs';
 import * as fromStore from '../../../store/reducers'
 import { FromEntityChannel } from 'src/app/store/actions';
 import { log } from 'util';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { log } from 'util';
 export class MessageComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<fromStore.State>,
+    private ac: ActivatedRoute
   ) {}
 
   newMess: Subscription;
@@ -27,8 +29,12 @@ export class MessageComponent implements OnInit, OnDestroy {
       thing.sort(this.sortDate))).subscribe(() => this.messages$)
   }
 
+  get id(): string {
+    return this.ac.snapshot.params['id'];
+  }
+
   deleteMessage(messageId: string) {
-    this.store.dispatch(FromEntityChannel.deleteMessage({ messageId }))
+    this.store.dispatch(FromEntityChannel.deleteMessage({ messageId, channelId: this.id }))
   }
 
 

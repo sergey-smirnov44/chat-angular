@@ -6,7 +6,7 @@ import { SignupComponent } from 'src/app/_modules/auth/pages/signup/signup.compo
 
 
 const appRoutes: Routes = [
-  { path: '', component: SignupComponent },
+  { path: '', component: HomeComponent },
   {
     path: 'auth',
     loadChildren: () => import('./_modules/auth/auth.module').then((mod) => mod.AuthModule)
@@ -14,12 +14,12 @@ const appRoutes: Routes = [
   {
     path: 'channels',
     loadChildren: () => import('./3_chat/chat.module').then(m => m.ChatModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
-  {
-    path: '**',
-    redirectTo: '/auth/login'
-  }
+  // {
+  //   path: '**',
+  //   redirectTo: '/auth/login'
+  // }
 ]
 
 @NgModule({

@@ -1,8 +1,8 @@
 export interface Message {
-  id: any;
+  id?: any;
   photo?: string;
   name: string;
-  time?: string;
+  time?: Date;
   text: any;
   date?: any;
 }

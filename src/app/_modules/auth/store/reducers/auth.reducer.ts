@@ -7,7 +7,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  isAuthenticated: false
+  isAuthenticated: true
 }
 
 export const authReducer = createReducer(

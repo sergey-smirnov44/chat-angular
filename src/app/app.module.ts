@@ -31,7 +31,7 @@ import { ChannelsEffects } from 'src/app/store/effects/channels.effects';
 import { FriendsEffects } from 'src/app/store/effects/friends.effects';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeComponent } from './home/home.component';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgpSortModule } from 'ngp-sort-pipe';
 import { UsersEffects } from 'src/app/store/effects/users.effects';
@@ -40,10 +40,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AuthService } from 'src/app/_modules/auth/core/services/auth.service';
 import { AuthModule } from 'src/app/_modules/auth/auth.module';
-import { AuthReducers } from 'src/app/_modules/auth/store/reducers';
 import { AuthGuard } from 'src/app/_modules/auth/guards/auth.guard';
+import { UIService } from 'src/app/_modules/auth/core/services/ui.service';
 
-const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
+
 
 
 
@@ -70,6 +70,9 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     CommonModule,
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
@@ -88,13 +91,10 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     AuthModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([ChannelsEffects, FriendsEffects, UsersEffects]),
-    SocketIoModule.forRoot(config),
     NgpSortModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
+
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, UIService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

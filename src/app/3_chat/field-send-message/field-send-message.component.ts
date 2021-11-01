@@ -27,6 +27,10 @@ export class FieldSendMessageComponent implements OnInit {
 
   name$: Observable<string> = this.store.select(fromStore.getNameChannel)
 
+  get id(): string {
+    return this.ac.snapshot.params['id'];
+  }
+
   public addEmoji(event) {
     this.fieldInput = `${ this.fieldInput }${ event.emoji.native }`;
   }
@@ -34,14 +38,13 @@ export class FieldSendMessageComponent implements OnInit {
   sendText() {
     if (this.fieldInput) {
       const newMessage: Message = {
-        id: Guid.create().toString(),
         photo: 'https://art.pixilart.com/8a47f5d9039d919.gif',
         name: 'Sergey',
         text: this.fieldInput,
         date: new Date().toISOString()
       }
 
-      this.store.dispatch(FromEntityChannel.sendMessage({ message: newMessage }))
+      this.store.dispatch(FromEntityChannel.sendMessage({ message: newMessage, channelId: this.id }))
       this.isEmojiPickerVisible = false
       this.fieldInput = ''
     }

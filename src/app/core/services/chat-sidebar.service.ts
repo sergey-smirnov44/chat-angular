@@ -12,7 +12,7 @@ import { User } from 'src/app/core/common/4_user/user.interface';
 })
 export class ChatSidebarService {
 
-  baseUrl = 'http://localhost:3000/'
+  baseUrl = 'https://chat-angular-6dfe6-default-rtdb.europe-west1.firebasedatabase.app/'
 
   constructor(
     private store: Store<fromMessage.State>,

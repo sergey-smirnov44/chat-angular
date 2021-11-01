@@ -1,5 +1,5 @@
 export interface Channels {
-  id: number;
+  id: string;
   name: string;
   selected: boolean;
 }

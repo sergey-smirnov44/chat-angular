@@ -30,7 +30,7 @@ export class ChatComponent implements OnInit {
   }
 
   deleteAllMessages() {
-    this.store.dispatch(fromEntityChannel.clearChat({ ids: [] }))
+    this.store.dispatch(fromEntityChannel.clearChat({ ids: [], channelId: this.id  }))
   }
 }
 

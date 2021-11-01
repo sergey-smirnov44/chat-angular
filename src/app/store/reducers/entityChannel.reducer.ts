@@ -33,9 +33,14 @@ const entityChannelReducer = createReducer(
     }
   }),
   on(FromEntityChannel.getEntityChannelSuccess, (state, { channel }) => {
-    return adapter.setAll(channel.messages, {
+    return {
       ...state,
       name: channel.name,
+    }
+  }),
+  on(FromEntityChannel.getMessageslSuccess, (state, { messages }) => {
+    return adapter.setAll(messages, {
+      ...state
     })
   }),
   on(FromEntityChannel.getValueSearch, (state, action) => {
@@ -51,13 +56,6 @@ const entityChannelReducer = createReducer(
         error: channel.err
       }
     }),
-  on(FromEntityChannel.sendMessage, (state, { message }) => {
-    return adapter.addOne(message, state)
-  }),
-  on(FromEntityChannel.sendMessageSuccess, (state, action) =>
-    adapter.addOne(action.message, state)
-  ),
-
   on(FromEntityChannel.deleteMessage, (state, action) => {
     return adapter.removeOne(action.messageId, state)
   }),
@@ -69,8 +67,7 @@ const entityChannelReducer = createReducer(
   }),
   on(
     FromEntityChannel.clearChatFailure,
-    FromEntityChannel.deleteMessageFailure,
-    FromEntityChannel.sendMessageFailure, (state, action) => {
+  (state, action) => {
       return {
         ...state,
         error: action.error
@@ -87,7 +84,7 @@ const {
 } = adapter.getSelectors();
 
 export const selectEntityChannel = (state: State) => state?.searchValue ? Object.values(state.entities)
-  .filter(m => m.text.includes(state.searchValue) || m.text.includes(state.searchValue)  || m.name.includes(state.searchValue )) : Object.values(state.entities);
+.filter(m => m.text.includes(state.searchValue) || m.text.includes(state.searchValue) || m.name.includes(state.searchValue)) : Object.values(state.entities);
 
 export const getNameChannel = (state: State) => state.name
 

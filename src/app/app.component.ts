@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/_modules/auth/core/services/auth.service';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as fromRoot from './_modules/auth/store/reducers'
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Component({
@@ -20,18 +21,20 @@ import * as fromRoot from './_modules/auth/store/reducers'
 export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService,
-    private store: Store<fromRoot.State>
+    private store: Store<fromRoot.State>,
+
   ) {
-    console.log('showThis', this.showThis + '\n', 'status', this.status)
+
   }
+
   public showThis = true;
   public status = false;
   state = false
   isAuth$: Observable<boolean>
 
   ngOnInit() {
-    this.isAuth$ = this.store.select(fromRoot.getIsAuth)
-    this.authService.initAuthListener()
+    // this.isAuth$ = this.store.select(fromRoot.getIsAuth)
+    // this.authService.initAuthListener()
   }
 
 }

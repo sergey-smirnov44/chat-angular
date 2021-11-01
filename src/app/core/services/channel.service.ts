@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Channels } from 'src/app/core/common/2_chat-sidebar/channelsChatSidebar.interface';
 import { Observable } from 'rxjs';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Injectable({
@@ -10,13 +11,16 @@ import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.
 })
 export class ChannelService {
 
-  baseUrl = 'http://localhost:3000/'
+  baseUrl = 'https://console.firebase.google.com/project/chat-angular-6dfe6/firestore/data/~2F'
 
-  constructor( private http: HttpClient ) {}
+  constructor( private http: HttpClient, private fb: AngularFirestore ) {}
 
   public getChannels(): Observable<Channels[]> {
     return this.http.get<Channels[]>(this.baseUrl + 'channels')
   }
+  // public getChannels(): Observable<Channels[]> {
+  //  return this.fb.collection('users').valueChanges();
+  // }
 
   public getChannelsByID(id): Observable<EntityChannel> {
     return this.http.get<EntityChannel>(this.baseUrl + 'channels/' + id)

@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import * as fromChannels from '../../store/actions/channels.actions'
 import * as fromStore from '../../store/reducers'
 import { ActivatedRoute, Router } from '@angular/router';
+import * as fromUI from '../../_modules/auth/store/reducers/index'
 
 @Component({
   selector: 'app-channels',
@@ -15,15 +16,15 @@ export class ChannelsComponent implements OnInit {
   constructor(
     private store: Store<fromStore.State>,
     private router: Router,
-    private ac: ActivatedRoute
+    private ac: ActivatedRoute,
+
   ) {}
 
-//   varr = '\'channels/\' + channel.id'
-// get id(): any {return this.ac.snapshot.params[this.varr]}
+  isLoading$: Observable<boolean>
   channels$: Observable<Channels[]> = this.store.select(fromStore.selectAllChannels)
 
   ngOnInit(): void {
-
+    this.isLoading$ = this.store.select(fromUI.getIsLoading)
     this.store.dispatch(fromChannels.loadChannels())
   }
 

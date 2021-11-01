@@ -13,6 +13,11 @@ export const getEntityChannelSuccess = createAction(
   props<{ channel: EntityChannel }>()
 )
 
+export const getMessageslSuccess = createAction(
+  '[ENTITY CHANNEL] Entity Channel Get Messages Success',
+  props<{ messages: Message[] }>()
+)
+
 export const getEntityChannelFailure = createAction(
   '[ENTITY CHANNEL] Entity Channel Get Failure',
   props<{ err: any }>()
@@ -23,7 +28,7 @@ export const getEntityChannelFailure = createAction(
 /****************************************************************************/
 export const deleteMessage = createAction(
   '[MESSAGE] Delete Message',
-  props<{ messageId: string }>());
+  props<{ messageId: string, channelId: string }>());
 
 export const deleteMessageSuccess = createAction(
   '[MESSAGE EFFECT] Delete Message Success')
@@ -36,10 +41,9 @@ export const deleteMessageFailure = createAction(
 /****************************************************************************/
 export const sendMessage = createAction(
   '[MESSAGE] Send Message',
-  props<{ message: Message }>());
+  props<{ channelId: string, message: Message }>());
 export const sendMessageSuccess = createAction(
-  '[MESSAGE EFFECT] Send Message Success',
-  props<{ message: Message }>());
+  '[MESSAGE EFFECT] Send Message Success');
 export const sendMessageFailure = createAction(
   '[MESSAGE EFFECT] Send Message Failure',
   props<{ error: any }>());
@@ -48,7 +52,7 @@ export const sendMessageFailure = createAction(
 /****************************************************************************/
 export const clearChat = createAction(
   '[MESSAGE] Clear Chat',
-  props<{ ids: Message[] }>());
+  props<{ ids: Message[], channelId: string }>());
 
 export const clearChatSuccess = createAction(
   '[MESSAGE EFFECT] Delete Chat Success')

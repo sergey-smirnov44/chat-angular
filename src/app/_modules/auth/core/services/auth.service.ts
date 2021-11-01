@@ -5,6 +5,8 @@ import * as fromRoot from '../../store/reducers/index'
 import { Login } from 'src/app/_modules/auth/core/models/login.model';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import * as LoadingAction from '../../store/actions/loading.actions'
+import { UIService } from 'src/app/_modules/auth/core/services/ui.service';
 
 
 @Injectable()
@@ -13,12 +15,24 @@ export class AuthService {
     private auth: AngularFireAuth,
     private afAuth: AngularFireAuth,
     private router: Router,
-    private store: Store<fromRoot.State>
+    private store: Store<fromRoot.State>,
+    private uiService: UIService
   ) {}
 
-  // registerUser(authData: AuthData) {
-  //   this.store
-  // }
+  registerUser(authData: Login) {
+    this.store.dispatch(LoadingAction.START_LOADING())
+    this.afAuth.createUserWithEmailAndPassword(
+      authData.email,
+      authData.password
+    ).then(() =>
+      this.store.dispatch(LoadingAction.STOP_LOADING())
+    ).catch(
+      error => {
+        this.store.dispatch(LoadingAction.STOP_LOADING())
+        this.uiService.showSnackbar(error.message, error, 3000)
+      }
+    )
+  }
 
   // checkAuth(): Observable<firebase.User | null> {
   //   return this.auth.authState
@@ -49,7 +63,9 @@ export class AuthService {
     })
   }
 
-  logout() {
+
+
+  SignOut() {
     this.afAuth.signOut()
   }
 

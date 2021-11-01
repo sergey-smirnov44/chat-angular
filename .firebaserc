@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "chat-angular-6dfe6": {
+      "hosting": {
+        "fitness-tracker": [
+          "ng-chat-angular-6dfe6"
+        ]
+      }
+    }
+  }
+}
