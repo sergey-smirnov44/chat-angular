@@ -18,9 +18,7 @@ export class ChannelService {
   public getChannels(): Observable<Channels[]> {
     return this.http.get<Channels[]>(this.baseUrl + 'channels')
   }
-  // public getChannels(): Observable<Channels[]> {
-  //  return this.fb.collection('users').valueChanges();
-  // }
+
 
   public getChannelsByID(id): Observable<EntityChannel> {
     return this.http.get<EntityChannel>(this.baseUrl + 'channels/' + id)

@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { EntityChannel } from '../../core/common/2_chat-sidebar/entityChannel.interface'
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
+import {Channel} from 'src/app/core/common/3_chat/channelChat.interface';
 
 
 export const getEntityChannel = createAction(
@@ -24,7 +25,22 @@ export const getEntityChannelFailure = createAction(
 )
 
 /****************************************************************************/
-/***************************DELETE 1 MESSAGE***********************************/
+/***************************CREATE CHANNEL*********************************/
+/****************************************************************************/
+
+export const createChannel = createAction(
+  '[CREATED CHANNEL] Created Channel',
+  props<{ channel: EntityChannel }>()
+);
+
+export const createChannelSuccess = createAction(
+  '[CREATED CHANNEL] Created Channel Success');
+export const createChannelFailure = createAction(
+  '[CREATED CHANNEL] Created Channel Failure',
+  props<{ error: any }>());
+
+/****************************************************************************/
+/***************************DELETE 1 MESSAGE*********************************/
 /****************************************************************************/
 export const deleteMessage = createAction(
   '[MESSAGE] Delete Message',

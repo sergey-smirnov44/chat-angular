@@ -7,11 +7,19 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Channels } from 'src/app/core/common/2_chat-sidebar/channelsChatSidebar.interface';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
-import { snapshotChanges } from '@angular/fire/compat/database';
 
 
 @Injectable()
 export class ChannelsEffects {
+
+  addChannel$: Observable<Action> = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FromEntityChannel.createChannel),
+      exhaustMap(action => from(this.fireStore.collection('channels').add(action.channel)).pipe(
+        map(() => FromEntityChannel.createChannelSuccess()), catchError(() => of(FromEntityChannel.createChannelFailure))
+      ))
+    )
+  )
 
   loadChannels$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
@@ -48,6 +56,7 @@ export class ChannelsEffects {
     )
   )
 
+
   sendMessage$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
       ofType(FromEntityChannel.sendMessage),
@@ -62,19 +71,13 @@ export class ChannelsEffects {
     )
   )
 
-  deleteMessage$: Observable<Action> = createEffect(() =>
-    this.actions$.pipe(
-      ofType(FromEntityChannel.deleteMessage),
-      exhaustMap(action =>
-        from(this.fireStore.collection('channels').doc(action.channelId).collection('messages').doc(action.messageId).delete())
-          .pipe(
-            map(() => FromEntityChannel.deleteMessageSuccess(),
-              catchError(() => of(FromEntityChannel.deleteMessageFailure))
-            )
-          )
-      )
-    )
-  )
+  // deleteMessage$: Observable<Action> = createEffect(() =>
+  //   this.actions$.pipe(
+  //     ofType(FromEntityChannel.deleteMessage),
+  //     exhaustMap(action =>
+  //       from(this.fireStore.collection('channels').doc(action.channelId).collection('messages').doc(action.messageId).delete())
+  // .pipe( map(() => FromEntityChannel.deleteMessageSuccess(), catchError(() =>
+  // of(FromEntityChannel.deleteMessageFailure)) ) ) ) ) )
 
 
   // ***************Delete Channel
@@ -82,9 +85,10 @@ export class ChannelsEffects {
     this.actions$.pipe(
       ofType(FromEntityChannel.clearChat),
       mergeMap(action =>
-        from(this.fireStore.collection('channels').get().toPromise().then(res => {res.forEach(elem =>
-  {elem.ref.delete()})})) .pipe( map(() => FromEntityChannel.clearChatSuccess(), catchError(() =>
-  of(FromEntityChannel.clearChatFailure)) ) ) ) ) )
+        from(this.fireStore.collection('channels').get().toPromise().then(res => {
+          res.forEach(elem => {elem.ref.delete()})
+        })).pipe(map(() => FromEntityChannel.clearChatSuccess(), catchError(() =>
+          of(FromEntityChannel.clearChatFailure)))))))
 
   constructor(
     private actions$: Actions,

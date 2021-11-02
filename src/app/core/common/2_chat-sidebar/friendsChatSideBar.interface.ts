@@ -1,6 +1,6 @@
 export interface Friends {
-  id: number;
+  id: string;
   name: string;
   avatar?: string;
-  online: boolean;
+  online?: boolean;
 }

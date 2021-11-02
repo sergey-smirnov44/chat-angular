@@ -2,14 +2,15 @@
   <div class="channels d-flex justify-content-around align-items-center">
     <div class="d-flex justify-content-around">
       <h2 class="channels__title">Channels</h2>
-      <div class="channels__count">(12)</div>
+      <div class="channels__count" >({{countChannels$ | async}})</div>
     </div>
-    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+    <button mat-icon-button  (click)="createChannel()" aria-label="Example icon button with a vertical three dot icon">
       <mat-icon>add</mat-icon>
     </button>
   </div>
   <!--***************   список каналов  **********************-->
-  <ul class="d-flex flex-column">
+
+  <ul class="d-flex flex-column" >
     <li
       [routerLink]="'channels/' + channel.id"
       class="channels__item"

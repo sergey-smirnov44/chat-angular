@@ -5,11 +5,13 @@ import { ChatRoutingModule } from 'src/app/3_chat/chat-routing.module';
 
 
 
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    ChatRoutingModule
+    ChatRoutingModule,
+
   ]
 })
 export class ChatModule { }

@@ -6,10 +6,10 @@
           <div
             (click)="showUser(friend.id)"
             class="people  d-flex align-items-center"
-            *ngIf="friend.friend "
+
           >
             <div [ngClass]="friend.online ? 'people__status people__status--online' : 'people__status people__status--offline'"></div>
-            <img class="people__photo" src="{{friend.photo}} " alt="{{friend.name}} "  >
+            <img class="people__photo" src="{{friend.photo}}" alt="">
             <div class="people__name">{{friend.name}} </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
             class="people  d-flex align-items-center"
           >
             <div [ngClass]="friend.online ? 'people__status people__status--online' : 'people__status people__status--offline'"></div>
-            <img class="people__photo" src="{{friend.photo}}" alt="{{friend.name}}">
+            <img class="people__photo" src="{{friend.photo}}" alt="">
             <div class="people__name">{{friend.name}}</div>
           </div>
         </div>

@@ -42,6 +42,7 @@ import { AuthService } from 'src/app/_modules/auth/core/services/auth.service';
 import { AuthModule } from 'src/app/_modules/auth/auth.module';
 import { AuthGuard } from 'src/app/_modules/auth/guards/auth.guard';
 import { UIService } from 'src/app/_modules/auth/core/services/ui.service';
+import { NewChannelDialogComponent } from './2_chat-sidebar/new-channel-dialog/new-channel-dialog.component';
 
 
 
@@ -64,6 +65,7 @@ import { UIService } from 'src/app/_modules/auth/core/services/ui.service';
     BtnsendComponent,
     AddNewFriendComponent,
     HomeComponent,
+    NewChannelDialogComponent,
 
   ],
   imports: [
