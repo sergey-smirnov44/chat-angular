@@ -1,0 +1,12 @@
+.my-profile {
+  margin-top: 30px;
+
+  &__photo {
+    width: 30%;
+    height: 30%;
+  }
+  &__title {
+    font-weight: bold;
+    margin-left: 20px;
+  }
+}

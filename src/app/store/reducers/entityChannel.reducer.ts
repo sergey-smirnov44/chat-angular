@@ -67,7 +67,7 @@ const entityChannelReducer = createReducer(
   }),
   on(
     FromEntityChannel.clearChatFailure,
-  (state, action) => {
+    (state, action) => {
       return {
         ...state,
         error: action.error
@@ -84,7 +84,8 @@ const {
 } = adapter.getSelectors();
 
 export const selectEntityChannel = (state: State) => state?.searchValue ? Object.values(state.entities)
-.filter(m => m.text.includes(state.searchValue) || m.text.includes(state.searchValue) || m.name.includes(state.searchValue)) : Object.values(state.entities);
+  .filter(m => m.text.includes(state.searchValue) || m.text.includes(state.searchValue)
+    || m.name.includes(state.searchValue)) : Object.values(state.entities);
 
 export const getNameChannel = (state: State) => state.name
 

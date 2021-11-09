@@ -1,18 +1,49 @@
-<section class="signup-form" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
-  <h3>Sign Up</h3>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayout="column" fxLayoutAlign="center center" >
+<section class="signup-form" fxLayout fxLayoutAlign="center center">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayout="column" fxLayoutAlign="center center">
+    <h3>Sign Up (Create New User)</h3>
+    <mat-form-field appearance="outline">
+      <mat-label>name</mat-label>
+      <input type="text" matInput ngModel name name="name" placeholder="Name" autocomplete="off"  required/>
+    </mat-form-field>
 
-  <mat-form-field>
-    <input type="email" matInput ngModel email name="email" placeholder="email" autocomplete="off" required/>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>username</mat-label>
+      <input type="text" matInput ngModel username id="username" name="username" placeholder="Username" autocomplete="off"  required/>
+    </mat-form-field>
 
-    <mat-form-field>
-      <input type="password" matInput ngModel password name="passwrod" placeholder="password" autocomplete="off"  required/>
+    <mat-form-field appearance="outline">
+      <mat-label>password</mat-label>
+      <input type="password" matInput ngModel password name="password" placeholder="password" autocomplete="new-password"  required/>
     </mat-form-field>
 
 
-    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
-    <mat-progress-bar *ngIf="isLoading$ | async" class="progress" mode="indeterminate"></mat-progress-bar>
+
+    <mat-form-field appearance="outline">
+      <mat-label>email</mat-label>
+      <input type="email" matInput placeholder="Your email" ngModel name="email" email required #emailInput="ngModel">
+      <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty.</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">E-Mail is invalid.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>profession</mat-label>
+      <input type="text" matInput ngModel profession name="profession" placeholder="profession" autocomplete="off"  required/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>skype</mat-label>
+      <input type="text" matInput ngModel skype name="skype" placeholder="skype" autocomplete="off"  />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>url your photo</mat-label>
+      <input type="url" matInput [(ngModel)]="urlPhoto" photo name="photo" placeholder="https://tipik.ru/wp-conteA-021.jpg" autocomplete="off"  />
+    </mat-form-field>
+
+
+    <button type="submit" mat-raised-button color="primary" *ngIf="!(isLoading$ | async)" [disabled]="f.invalid">Submit</button>
+    <mat-progress-bar *ngIf="isLoading$ | async" class="progresss" mode="indeterminate"></mat-progress-bar>
   </form>
+  <img src="{{urlPhoto}}" alt="your photo" class="signup-form__photo" fxFlex="33"  fxFlex.md="22" [style.margin-left]="'20px'">
 
 </section>

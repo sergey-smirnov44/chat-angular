@@ -37,23 +37,6 @@ const userReducer = createReducer(
         userInfo: user.err
       }
     }),
-//   on(FromUsers.sendMessage, (state, { message }) => {
-//     return adapter.addOne(message, state)
-//   }),
-//   on(FromUsers.sendMessageSuccess, (state, action) =>
-//     adapter.addOne(action.message, state)
-//   ),
-//   on(FromUsers.deleteMessage, (state, action) => {
-//     return adapter.removeOne(action.messageId, state)
-//   }),
-//   on(
-//     FromUsers.deleteMessageFailure,
-//     FromUsers.sendMessageFailure, (state, action) => {
-//       return {
-//         ...state,
-//         error: action.error
-//       }
-//     })
 );
 
 export function reducer(state: State | undefined, user: Action) {

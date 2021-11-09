@@ -1,9 +1,10 @@
 export interface User {
-  id: number;
-  name: string;
+  id?: number;
+  name?: string;
+  password?: string;
   profession?: string;
-  social?: string;
-  username: string;
+  social?: {};
+  username?: string;
   email: string;
   skype?: string;
   timezone?: string;

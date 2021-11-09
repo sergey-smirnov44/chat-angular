@@ -4,6 +4,7 @@ import * as fromStore from '../../store/reducers'
 import { Store } from '@ngrx/store';
 import { FromEntityChannel } from 'src/app/store/actions';
 import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -13,10 +14,11 @@ import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewChannelDialogComponent implements OnInit {
-  newChannel: null;
+  newChannel: string;
 
   constructor(
-    private store: Store<fromStore.State>
+    private store: Store<fromStore.State>,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,8 @@ export class NewChannelDialogComponent implements OnInit {
         name: this.newChannel
       }
       this.store.dispatch(FromEntityChannel.createChannel({channel: newCh}))
+      this.newChannel = ''
+      this.dialog.closeAll()
     }
   }
 }

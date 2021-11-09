@@ -39,7 +39,12 @@
 }
 
 .active-channel {
-
+  padding-left: 15px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 14px;
   width: 85%;
   background: rgba(255, 255, 255, .2);
   color: #fff;

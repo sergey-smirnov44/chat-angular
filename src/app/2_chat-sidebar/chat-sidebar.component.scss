@@ -2,16 +2,17 @@
   display: flex;
   align-content: center;
   align-items: center;
-position: relative;
+  position: relative;
 }
+
 .white-icon-arrow {
   color: white;
   position: absolute;
   right: -25px;
-  font-size:20px;
-
+  font-size: 20px;
   cursor: pointer;
 }
+
 .white-icon-message {
   color: white;
   position: absolute;

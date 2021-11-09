@@ -1,8 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { EntityChannel } from '../../core/common/2_chat-sidebar/entityChannel.interface'
 import { Message } from 'src/app/core/common/3_chat/messageChat.interface';
-import {Channel} from 'src/app/core/common/3_chat/channelChat.interface';
-
 
 export const getEntityChannel = createAction(
   '[ENTITY CHANNEL] Entity Channel Get',
@@ -25,7 +23,7 @@ export const getEntityChannelFailure = createAction(
 )
 
 /****************************************************************************/
-/***************************CREATE CHANNEL*********************************/
+/************************    CREATE CHANNEL    ******************************/
 /****************************************************************************/
 
 export const createChannel = createAction(
@@ -35,12 +33,13 @@ export const createChannel = createAction(
 
 export const createChannelSuccess = createAction(
   '[CREATED CHANNEL] Created Channel Success');
+
 export const createChannelFailure = createAction(
   '[CREATED CHANNEL] Created Channel Failure',
   props<{ error: any }>());
 
 /****************************************************************************/
-/***************************DELETE 1 MESSAGE*********************************/
+/***********************    DELETE 1 MESSAGE    *****************************/
 /****************************************************************************/
 export const deleteMessage = createAction(
   '[MESSAGE] Delete Message',
@@ -53,7 +52,7 @@ export const deleteMessageFailure = createAction(
   '[MESSAGE EFFECT] Delete Message Failure',
   props<{ error: any }>())
 /****************************************************************************/
-/***************************SEND MESSAGE***********************************/
+/***********************     SEND MESSAGE     *******************************/
 /****************************************************************************/
 export const sendMessage = createAction(
   '[MESSAGE] Send Message',
@@ -64,7 +63,7 @@ export const sendMessageFailure = createAction(
   '[MESSAGE EFFECT] Send Message Failure',
   props<{ error: any }>());
 /****************************************************************************/
-/***************************DELETE ALL MESSAGES***********************************/
+/********************    DELETE ALL MESSAGES    ****************************/
 /****************************************************************************/
 export const clearChat = createAction(
   '[MESSAGE] Clear Chat',
@@ -78,7 +77,7 @@ export const clearChatFailure = createAction(
   props<{ error: any }>())
 
 /****************************************************************************/
-/***************************LOADING MESSAGE***********************************/
+/************************   LOADING MESSAGE   *******************************/
 /****************************************************************************/
 
 export const loadMessage = createAction(
@@ -89,7 +88,7 @@ export const loadMessageSuccess = createAction(
   props<{ message: Message[] }>());
 
 /****************************************************************************/
-/***************************GET VALUE SEARCH***********************************/
+/***********************   GET VALUE SEARCH   *******************************/
 /****************************************************************************/
 
 export const getValueSearch = createAction(

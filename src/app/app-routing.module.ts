@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from 'src/app/home/home.component';
 import { AuthGuard } from 'src/app/_modules/auth/guards/auth.guard';
 import { SignupComponent } from 'src/app/_modules/auth/pages/signup/signup.component';
+import { MyProfileComponent } from 'src/app/_modules/my-profile/my-profile.component';
 
 
 const appRoutes: Routes = [
@@ -10,6 +11,10 @@ const appRoutes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./_modules/auth/auth.module').then((mod) => mod.AuthModule)
+  },
+  {
+    path: 'my-profile',
+    component: MyProfileComponent
   },
   {
     path: 'channels',

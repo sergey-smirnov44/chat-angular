@@ -1,23 +1,39 @@
 <div *ngFor=" let message of messages$ | async">
+<!--  <div [ngClass]="message.date[i-1] != message.date ? 'line' : ''">-->
   <div class="line">
+<!--    <div class="line-date" >{{message.date[i] == message.date[i] ? message.date : '' }}</div>-->
     <div class="line-date" >{{message.date | date : 'EEEE, MMMM d, y, GGGG'}}</div>
 
   </div>
-  <div class="message-main">
-    <div class="message" id="messageBody">
+  <div class="message-main ">
+    <div class="message " id="messageBody">
       <img class="message__photo" src="{{message.photo}}" alt="{{message.name}}">
-      <div class="text d-flex flex-column">
-        <div class="d-flex mb-1">
+      <div class="d-flex align-items-start">
+
+        <div class="d-flex align-items-center">
+
           <p class="message__name">{{message.name}}</p>
-          <p class="message__time">{{message.date | date : 'HH:mm:ss'}}</p>
+
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="message__more"
+                  aria-label="Example icon-button with a menu">
+            <mat-icon class="color-white">more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" class="mattmenu">
+            <button  class="message__btn-del d-flex align-items-center justify-content-center" (click)="deleteMessage(message.id)">
+              <mat-icon>clear</mat-icon>
+              <span>delete the message</span>
+            </button>
+          </mat-menu>
+
+        <p class="message__time">{{message.date | date : 'HH:mm'}}</p>
+
         </div>
+
         <p class="message__text "><a
           href="https://goingawesomeplaces.com/6-day-iceland-road-trip-itinerary/"
           target="_blank"></a>{{message.text}}</p>
       </div>
-      <button class="message__btn-del" (click)="deleteMessage(message.id)">
-        <mat-icon>clear</mat-icon>
-      </button>
+
     </div>
   </div>
 </div>

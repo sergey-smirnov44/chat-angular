@@ -1,0 +1,68 @@
+<form class="my-profile" fxLayout="column" fxLayoutAlign="center center">
+
+  <mat-card class="m-1 p-3">
+    <mat-card-header>
+      <mat-card-title>My Profile</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content fxLayout="column">
+
+      <img mat-card-image fxLayout="row" class="align-self-center" src="https://art.pixilart.com/8a47f5d9039d919.gif"
+           alt="" class="my-profile__photo">
+
+      <div fxLayout>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" [(ngModel)]="value">
+        </mat-form-field>
+      </div>
+      <span>username</span>
+      <mat-card class="m-2">
+
+        <span class="my-profile__title">ork_dig</span>
+        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>edit
+          </mat-icon>
+        </button>
+      </mat-card>
+      <mat-card class="m-2">
+        <span>e-mail</span>
+        <span class="my-profile__title">"diggs@rambler.com"</span>
+        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>edit
+          </mat-icon>
+        </button>
+      </mat-card>
+      <mat-card class="m-2">
+        <span>social</span>
+        <span class="my-profile__title">facebook</span>
+        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>edit
+          </mat-icon>
+        </button>
+      </mat-card>
+      <mat-card class="m-2">
+        <span>skype</span>
+        <span class="my-profile__title">boorman</span>
+        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>edit
+          </mat-icon>
+        </button>
+      </mat-card>
+      <mat-card class="m-2">
+        <span>profession</span>
+        <span class="my-profile__title">programmer JAVA</span>
+        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>edit
+          </mat-icon>
+        </button>
+      </mat-card>
+
+    </mat-card-content>
+
+
+  </mat-card>
+
+
+  <button mat-raised-button color="primary">Change & Save</button>
+</form>

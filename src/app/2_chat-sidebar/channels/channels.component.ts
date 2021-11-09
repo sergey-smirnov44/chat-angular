@@ -53,5 +53,6 @@ export class ChannelsComponent implements OnInit, OnDestroy {
     if (this.countChan) {
       this.countChan.unsubscribe()
     }
+
   }
 }

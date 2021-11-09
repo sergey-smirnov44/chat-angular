@@ -71,13 +71,13 @@ export class ChannelsEffects {
     )
   )
 
-  // deleteMessage$: Observable<Action> = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(FromEntityChannel.deleteMessage),
-  //     exhaustMap(action =>
-  //       from(this.fireStore.collection('channels').doc(action.channelId).collection('messages').doc(action.messageId).delete())
-  // .pipe( map(() => FromEntityChannel.deleteMessageSuccess(), catchError(() =>
-  // of(FromEntityChannel.deleteMessageFailure)) ) ) ) ) )
+  deleteMessage$: Observable<Action> = createEffect(() =>
+    this.actions$.pipe(
+      ofType(FromEntityChannel.deleteMessage),
+      exhaustMap(action =>
+        from(this.fireStore.collection('channels').doc(action.channelId).collection('messages').doc(action.messageId).delete())
+          .pipe(map(() => FromEntityChannel.deleteMessageSuccess(), catchError(() =>
+            of(FromEntityChannel.deleteMessageFailure)))))))
 
 
   // ***************Delete Channel

@@ -26,3 +26,8 @@ export const getIsLoading = createSelector(
   getLoadingState,
   fromLoading.getIsLoading
 )
+
+export const getUserName = createSelector(
+  getAuthState,
+  fromAuth.getIsUserName
+)

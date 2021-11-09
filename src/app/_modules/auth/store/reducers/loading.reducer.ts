@@ -7,15 +7,15 @@ export interface State {
 }
 
 export const initialState: State = {
-  isLoading: false
+  isLoading: true
 }
 
 export const loadingReducer = createReducer(
   initialState,
-  on(FromLoading.START_LOADING, (state) => {
+  on(FromLoading.START_LOADING, () => {
     return { isLoading: true }
   }),
-  on(FromLoading.STOP_LOADING, (state) => {
+  on(FromLoading.STOP_LOADING, () => {
     return { isLoading: false }
   })
 )

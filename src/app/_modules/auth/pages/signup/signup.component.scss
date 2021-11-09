@@ -1,5 +1,11 @@
 .signup-form {
   margin-top: 50px;
+  &__photo {
+    border: 1px solid rgba(0,0,0, .1);
+    height: 20rem;
+    border-radius: 20px;
+    background-size: cover;
+  }
 }
 mat-form-field {
   width: 300px;
@@ -13,9 +19,8 @@ a {
 }
 
 
-
-.progress {
+.progresss {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
 }
