@@ -1,16 +1,16 @@
-import { createAction, props } from '@ngrx/store';
+import { Action, createAction, props } from '@ngrx/store';
 import { User } from 'src/app/core/common/4_user/user.interface';
 
 /****************************************************************************/
 /******************************   Login   ***********************************/
 /****************************************************************************/
 
-export const SET_AUTHENTICATED = createAction(
-  '[LOGIN] SET_AUTHENTICATED'
+export const setAuthenticated = createAction(
+  '[LOGIN]  Authenticated'
 );
 
-export const SET_UNAUTHENTICATED = createAction(
-  '[LOGIN] SET_UNAUTHENTICATED'
+export const setUnAuthenticated = createAction(
+  '[LOGIN]  UnAuthenticated'
 );
 
 /****************************************************************************/
@@ -28,3 +28,19 @@ export const createNewUserSuccess = createAction(
 export const createNewUserFailure = createAction(
   '[CREATE NEW USER] Create New User Failure',
   props<{ error: any }>());
+
+
+//
+// export const SET_AUTHENTICATED = '[Auth] Set Authenticated'
+// export const SET_UNAUTHENTICATED = '[Auth] Set Unauthenticated'
+//
+// export class SetAuthenticated implements Action {
+//   readonly type = SET_AUTHENTICATED
+// }
+//
+// export class SetUnauthenticated implements Action {
+//   readonly type = SET_UNAUTHENTICATED
+// }
+//
+// export type AuthActions = SetAuthenticated | SetUnauthenticated
+

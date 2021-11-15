@@ -44,11 +44,6 @@ import { AuthGuard } from 'src/app/_modules/auth/guards/auth.guard';
 import { UIService } from 'src/app/_modules/auth/core/services/ui.service';
 import { NewChannelDialogComponent } from './2_chat-sidebar/new-channel-dialog/new-channel-dialog.component';
 import { MyProfileComponent } from './_modules/my-profile/my-profile.component';
-import { AuthEffects } from 'src/app/_modules/auth/store/effects/auth.effects';
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -69,9 +64,11 @@ import { AuthEffects } from 'src/app/_modules/auth/store/effects/auth.effects';
     HomeComponent,
     NewChannelDialogComponent,
     MyProfileComponent,
+
   ],
   imports: [
     CommonModule,
+    AuthModule,
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -92,11 +89,10 @@ import { AuthEffects } from 'src/app/_modules/auth/store/effects/auth.effects';
         strictActionImmutability: true
       },
     }),
-    AuthModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([ChannelsEffects, FriendsEffects, UsersEffects, AuthEffects]),
-    NgpSortModule,
 
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([ChannelsEffects, FriendsEffects, UsersEffects]),
+    NgpSortModule,
   ],
   providers: [AuthService, AuthGuard, UIService],
   bootstrap: [AppComponent],

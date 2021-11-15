@@ -3,16 +3,9 @@ import { AuthService } from 'src/app/_modules/auth/core/services/auth.service';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import * as fromRoot from '../../store/reducers/loading.reducer'
+import * as fromRoot from 'src/app/store/reducers/loading.reducer'
 import { ErrorStateMatcher } from '@angular/material/core';
-import { EntityChannel } from 'src/app/core/common/2_chat-sidebar/entityChannel.interface';
-import { FromEntityChannel } from 'src/app/store/actions';
 import { User } from 'src/app/core/common/4_user/user.interface';
-import {FromAuth} from '../../store/actions'
-
-import * as fromRoooot from '../../store/reducers/index'
-
-
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -20,6 +13,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
+
 @Component({
   selector: 'app-login',
   templateUrl: './signup.component.html',
@@ -37,8 +31,7 @@ export class SignupComponent implements OnInit {
   constructor(public authService: AuthService, private store: Store<fromRoot.State>) { }
 
   ngOnInit(): void {
-    this.isLoading$ = this.store.select(fromRoot.getIsLoading)
-
+    // this.isLoading$ = this.store.select(fromRoot.getIsLoading)
   }
 
   onSubmit(form: NgForm) {

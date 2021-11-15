@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { FromLoading } from 'src/app/_modules/auth/store/actions';
+import { FromLoading } from '../actions';
 
 
 export interface State {
@@ -7,7 +7,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  isLoading: true
+  isLoading: false
 }
 
 export const loadingReducer = createReducer(
@@ -26,3 +26,4 @@ export function reducer(state: State | undefined, action: Action) {
 }
 
 export const getIsLoading = (state: State) => state.isLoading
+

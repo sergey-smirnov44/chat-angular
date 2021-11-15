@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import * as fromChannels from '../../store/actions/channels.actions'
 import * as fromStore from '../../store/reducers'
 import { ActivatedRoute, Router } from '@angular/router';
-import * as fromUI from '../../_modules/auth/store/reducers/index'
+// import * as fromUI from '../../_modules/auth/store/reducers/index'
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { log } from 'util';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -32,7 +32,7 @@ export class ChannelsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.isLoading$ = this.store.select(fromUI.getIsLoading)
+    // this.isLoading$ = this.store.select(fromUI.getIsLoading)
     this.store.dispatch(fromChannels.loadChannels())
     this.countChan = this.countChannels$.pipe(map(a => a.length)).subscribe((res) => {this.countChannels$ = of(res)})
   }

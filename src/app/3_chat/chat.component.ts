@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit {
 
   constructor(
     private store: Store<fromMessage.State>,
-    private chatService: ChannelService,
+
     private ac: ActivatedRoute,
   ) {}
 

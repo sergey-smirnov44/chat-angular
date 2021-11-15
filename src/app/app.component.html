@@ -1,11 +1,11 @@
 <div fxLayout="row" class="main">
-  <app-services></app-services>
-  <app-chat-sidebar class="m-0 p-0"></app-chat-sidebar>
+  <app-services *ngIf="isAuth$ | async"></app-services>
+  <app-chat-sidebar class="m-0 p-0" *ngIf="isAuth$ | async"></app-chat-sidebar>
   <div [ngClass]="status ? 'col-xl-8 p-0 m-0' : 'p-0 m-0 residual-width'">
-    <router-outlet>
-
-
-    </router-outlet>
+    <main>
+      <router-outlet>
+      </router-outlet>
+    </main>
 
     <button class="hide-user-btn" (click)="(status=!status) && (showThis = !showThis)" *ngIf="!showThis">
       <mat-icon class="hide-user-btn__icon">arrow_back_ios</mat-icon>
@@ -18,22 +18,3 @@
 
   <app-user class=" p-0 m-0" *ngIf="!showThis"></app-user>
 </div>
-
-<!--<div fxLayout="row" class="main">-->
-<!--  <app-services *ngIf="isAuth$ | async"></app-services>-->
-<!--  <app-chat-sidebar *ngIf="isAuth$ | async" class="m-0 p-0"></app-chat-sidebar>-->
-<!--  <div [ngClass]="status ? 'col-xl-8 p-0 m-0' : 'p-0 m-0 residual-width'" >-->
-<!--    <router-outlet ></router-outlet>-->
-
-<!--    <button  class="hide-user-btn" (click)="(status=!status) && (showThis = !showThis)"   *ngIf="showThis && isAuth$ | async" >-->
-<!--      <mat-icon class="hide-user-btn__icon">arrow_back_ios</mat-icon>-->
-<!--    </button>-->
-<!--    <button class="hide-user-btn" (click)="(status=!status) || (showThis = !showThis)"  color="primary" *ngIf="!showThis && isAuth$ | async">-->
-<!--      <mat-icon class="hide-user-btn__icon">arrow_forward_ios</mat-icon>-->
-<!--    </button>-->
-<!--  </div>-->
-
-<!--  <app-user class=" p-0 m-0" *ngIf="!showThis && isAuth$ | async"></app-user>-->
-<!--</div>-->
-
-

@@ -9,54 +9,51 @@
 
       <img mat-card-image fxLayout="row" class="align-self-center" src="https://art.pixilart.com/8a47f5d9039d919.gif"
            alt="" class="my-profile__photo">
-
-      <div fxLayout>
-        <mat-form-field class="example-form-field" appearance="fill">
-          <mat-label>Name</mat-label>
-          <input matInput type="text" [(ngModel)]="value">
+      <form  fxLayout="column" fxLayoutAlign="center center">
+        <h3>Sign Up (Create New User)</h3>
+        <mat-form-field appearance="outline">
+          <mat-label>name</mat-label>
+          <input type="text" matInput ngModel name name="name" placeholder="Name" autocomplete="off"  required/>
         </mat-form-field>
-      </div>
-      <span>username</span>
-      <mat-card class="m-2">
 
-        <span class="my-profile__title">ork_dig</span>
-        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>edit
-          </mat-icon>
-        </button>
-      </mat-card>
-      <mat-card class="m-2">
-        <span>e-mail</span>
-        <span class="my-profile__title">"diggs@rambler.com"</span>
-        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>edit
-          </mat-icon>
-        </button>
-      </mat-card>
-      <mat-card class="m-2">
-        <span>social</span>
-        <span class="my-profile__title">facebook</span>
-        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>edit
-          </mat-icon>
-        </button>
-      </mat-card>
-      <mat-card class="m-2">
-        <span>skype</span>
-        <span class="my-profile__title">boorman</span>
-        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>edit
-          </mat-icon>
-        </button>
-      </mat-card>
-      <mat-card class="m-2">
-        <span>profession</span>
-        <span class="my-profile__title">programmer JAVA</span>
-        <button *ngIf="value" mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>edit
-          </mat-icon>
-        </button>
-      </mat-card>
+        <mat-form-field appearance="outline">
+          <mat-label>username</mat-label>
+          <input type="text" matInput ngModel username id="username" name="username" placeholder="Username" autocomplete="off"  required/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>password</mat-label>
+          <input type="password" matInput ngModel password name="password" placeholder="password" autocomplete="new-password"  required/>
+        </mat-form-field>
+
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>email</mat-label>
+          <input type="email" matInput placeholder="Your email" ngModel name="email" email required >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>profession</mat-label>
+          <input type="text" matInput ngModel profession name="profession" placeholder="profession" autocomplete="off"  required/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>skype</mat-label>
+          <input type="text" matInput ngModel skype name="skype" placeholder="skype" autocomplete="off"  />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>url your photo</mat-label>
+          <input type="url" matInput photo name="photo" placeholder="https://tipik.ru/wp-conteA-021.jpg" autocomplete="off"  />
+        </mat-form-field>
+
+
+        <button type="submit" mat-raised-button color="primary"  >Submit</button>
+<!--        <mat-progress-bar *ngIf="isLoading$ | async" class="progresss" mode="indeterminate"></mat-progress-bar>-->
+        <p class="mt-2">If you want Log in link<a routerLink="/login"> here </a></p>
+      </form>
+
 
     </mat-card-content>
 

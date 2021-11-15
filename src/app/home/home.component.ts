@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthService } from 'src/app/_modules/auth/core/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,14 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private fb: AngularFirestore
+    private authService: AuthService,
   ) {
-    this.items$ = fb.collection('users').valueChanges();
+
   }
-  items$: Observable<any[]>
   ngOnInit(): void {
-
   }
 
+  exit($event: MouseEvent) {
+    this.authService.SignOut()
+  }
 }

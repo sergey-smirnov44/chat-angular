@@ -6,7 +6,6 @@
           <div
             (click)="showUser(friend.id)"
             class="people  d-flex align-items-center"
-
           >
             <div [ngClass]="friend.online ? 'people__status people__status--online' : 'people__status people__status--offline'"></div>
             <img class="people__photo" src="{{friend.photo}}" alt="">
@@ -16,10 +15,10 @@
       </div>
     </mat-tab>
 
-    <mat-tab label="All users({{1000}})">
+    <mat-tab label="All users({{(friends$ | async)?.length}})">
 
       <div class="friends__list">
-        <div *ngFor="let friend of friends$ | async | sortBy:'desc':'online'; count as c">
+        <div *ngFor="let friend of friends$ | async | sortBy:'desc':'online'">
           <div
             (click)="showUser(friend.id)"
             class="people  d-flex align-items-center"

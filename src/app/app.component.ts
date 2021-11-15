@@ -8,33 +8,35 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_modules/auth/core/services/auth.service';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import * as fromRoot from './_modules/auth/store/reducers'
+import * as fromRoot from '../app/store/reducers'
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { log } from 'util';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private store: Store<fromRoot.State>,
-
   ) {
 
   }
 
   public showThis = true;
   public status = false;
-  state = false
-  isAuth$: Observable<boolean>
+
+  isAuth$: Observable<boolean>;
 
   ngOnInit() {
-    // this.isAuth$ = this.store.select(fromRoot.getIsAuth)
-    // this.authService.initAuthListener()
+    this.isAuth$ = this.store.select(fromRoot.getIsAuth)
+    this.isAuth$.subscribe(x => console.log(x) )
+    this.authService.initAuthListener()
+
   }
 
 }

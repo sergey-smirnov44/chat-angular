@@ -1,34 +1,42 @@
-<section class="login-form">
-  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px"
-        novalidate
+<section class="login-form" fxLayout fxLayoutAlign="center center" fxLayout="column">
+  <mat-card class="p-5">
+    <form #f="ngForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="center center"
+          novalidate>
 
-  >
+      <h3>Log in</h3>
+      <mat-form-field>
+        <mat-label>email</mat-label>
+        <input type="email"
+               matInput
+               email
+               placeholder="Enter your login"
+               formControlName="userLogin"
+               autocomplete="username"
+        >
+      </mat-form-field>
 
-    <mat-form-field hintLabel="example: 123@mail.com">
-      <input type="email "
-             matInput
-             email
-             placeholder="Enter your login"
-             formControlName="userLogin"
-      >
-<!--      <mat-error *ngIf="loginForm.controls['userLogin'].invalid && loginForm.controls['userLogin'].touched">Login invalid</mat-error>-->
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>password</mat-label>
+        <input type="password"
+               matInput
+               name="password"
+               placeholder="Enter your password"
+               autocomplete="current-password"
+               formControlName="userPassword"
+        >
+      </mat-form-field>
 
 
-    <mat-form-field hintLabel="Should be at least 8 characters long">
-      <input type="password"
-             matInput
-             name="password"
-             placeholder="Enter your password"
-             formControlName="userPassword"
-      >
-<!--      <mat-error *ngIf="loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched">password be at least 8 characters long (numbers, chars, letter and special symbols)</mat-error>-->
-    </mat-form-field>
+      <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button color="primary"
+              [disabled]="loginForm.invalid">Login
+      </button>
 
 
+    </form>
+    <p class="mt-2">If you want Sign Up link<a routerLink="/signup"> here </a></p>
 
-<!--    <button *ngIf="!(isLoading$ | async)" type="submit" mat-raised-button  color="primary" [disabled]="loginForm.invalid">Login</button>-->
-<!--    <mat-progress-bar *ngIf="isLoading$ | async" class="progress" mode="indeterminate"></mat-progress-bar>-->
-  </form>
-
+  </mat-card>
+  <mat-progress-bar *ngIf="isLoading$ | async" class="progresss" mode="indeterminate"></mat-progress-bar>
 </section>
+
+

@@ -1,34 +1,22 @@
 <section class="services" fxLayout fxLayout="column">
 
   <div class="button-macos" fxLayout fxLayoutGap="5px">
-    <button class="button-macos__item button-macos__item--red"></button>
+    <button class="button-macos__item button-macos__item--red" (click)="exit($event)"></button>
     <button class="button-macos__item button-macos__item--yellow"></button>
     <button class="button-macos__item button-macos__item--green"></button>
   </div>
+  <div class="active-user" routerLink="/my-profile">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0IYzhnJHmslRnQDdYHGVIDw5YWiumvbqr6w&usqp=CAU" class="active-user__photo" alt="Mick">
 
+  </div>
   <div class="menu-list" fxLayout="column">
-    <a class="menu-list__item menu-list__item--icon1" aria-label="Example icon button with a bookmark icon">
-    </a>
-    <a class="menu-list__item menu-list__item--icon2"
-    >
-    </a>
-    <a class="menu-list__item menu-list__item--icon3"
-       aria-label="Example icon button with a bookmark icon">
-    </a>
-    <a class="menu-list__item menu-list__item--icon4"
-       aria-label="Example icon button with a bookmark icon">
-    </a>
-    <a class="menu-list__item menu-list__item--icon5"
-       aria-label="Example icon button with a bookmark icon">
-    </a>
-    <a class="menu-list__item menu-list__item--icon6"
-       aria-label="Example icon button with a bookmark icon">
-    </a>
-    <a class="menu-list__item menu-list__item--icon7"
-       aria-label="Example icon button with a bookmark icon">
-    </a>
-    <a class="menu-list__item menu-list__item--icon8"
-       aria-label="Example icon button with a bookmark icon">
-    </a>
+    <a class="menu-list__item menu-list__item--icon1"></a>
+    <a class="menu-list__item menu-list__item--icon2"></a>
+    <a class="menu-list__item menu-list__item--icon3"></a>
+    <a class="menu-list__item menu-list__item--icon4"></a>
+    <a class="menu-list__item menu-list__item--icon5"></a>
+    <a class="menu-list__item menu-list__item--icon6"></a>
+    <a class="menu-list__item menu-list__item--icon7"></a>
+    <a class="menu-list__item menu-list__item--icon8"></a>
   </div>
 </section>

@@ -15,13 +15,13 @@ export class ChannelService {
 
   constructor( private http: HttpClient, private fb: AngularFirestore ) {}
 
-  public getChannels(): Observable<Channels[]> {
-    return this.http.get<Channels[]>(this.baseUrl + 'channels')
-  }
-
-
-  public getChannelsByID(id): Observable<EntityChannel> {
-    return this.http.get<EntityChannel>(this.baseUrl + 'channels/' + id)
-
-  }
+  // public getChannels(): Observable<Channels[]> {
+  //   return this.http.get<Channels[]>(this.baseUrl + 'channels')
+  // }
+  //
+  //
+  // public getChannelsByID(id): Observable<EntityChannel> {
+  //   return this.http.get<EntityChannel>(this.baseUrl + 'channels/' + id)
+  //
+  // }
 }

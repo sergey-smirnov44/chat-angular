@@ -2,7 +2,7 @@
   <div class="channels d-flex justify-content-around align-items-center">
     <div class="d-flex justify-content-around">
       <h2 class="channels__title">Channels</h2>
-      <div class="channels__count">({{countChannels$ | async}})</div>
+      <div class="channels__count">({{ (channels$ | async)?.length }})</div>
     </div>
     <button mat-icon-button (click)="createChannel()" aria-label="Example icon button with a vertical three dot icon">
       <mat-icon>add</mat-icon>
